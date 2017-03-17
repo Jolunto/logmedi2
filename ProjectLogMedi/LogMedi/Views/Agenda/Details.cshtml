@@ -1,0 +1,70 @@
+﻿@model Models.DetallesCita
+
+    @{
+        Layout = null;
+    }
+
+    <section class="content" style="padding:0px!important">
+
+
+        <div class="box box-primary" style="padding:15px!important;border-top-width:4px">
+
+            <div class="box-header with-border" style="padding-top:0px">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h3 class="box-title">Detalles cita - @Model.id_cita</h3>
+
+            </div>
+            <div class="form-horizontal">
+                <div class="box-body">
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>ID</dt>
+                            <dd>@Model.id_cita</dd>
+                            <dt>Agenda</dt>
+                            <dd>@Model.usuario.usuario</dd>
+                            <dt>Fecha</dt>
+                            <dd>@Model.fecha</dd>
+                            <dt>Hora</dt>
+                            <dd>@Model.horario.hora</dd>
+                            <dt>Paciente</dt>
+                            <dd>@Model.paciente.primer_nombre @Model.paciente.segundo_nombre @Model.paciente.primer_apellido @Model.paciente.segundo_apellido</dd>
+
+                            <dt># Documento</dt>
+                            <dd>@Model.id_paciente</dd>
+
+                            <dt>Estado cita</dt>
+                            @{ switch (Model.id_estado_cita)
+                                {
+                                    case 1:
+                                        <dd>Pendiente</dd>
+                                        break;
+                                    case 2:
+                                        <dd>Confirmada</dd>
+                                        break;
+                                    case 3:
+                                        <dd>Atendida</dd>
+                                        break;
+
+                                    default:
+
+                                        break;
+                                } }
+                            <dt>Observaciones</dt>
+                            <dd>@Model.observaciones</dd>
+
+                    </dl>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>

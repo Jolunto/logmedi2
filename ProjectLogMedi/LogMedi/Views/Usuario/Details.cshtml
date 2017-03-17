@@ -1,0 +1,73 @@
+﻿@model Models.usuario
+
+@{
+    Layout = null;
+}
+
+
+<section class="content" style="padding:0px!important">
+
+
+    <div class="box box-primary" style="padding:15px!important;border-top-width:4px">
+
+        <div class="box-header with-border" style="padding-top:0px">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h3 class="box-title">Detalles usuario - @Model.nombre_usuario</h3>
+
+        </div>
+        <div class="form-horizontal">
+            <div class="box-body">
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>ID</dt>
+                        <dd>@Model.id_usuario</dd>
+                        <dt>Nombre</dt>
+                        <dd>@Model.nombre_usuario</dd>
+                        <dt>Correo</dt>
+                        <dd>@Model.correo</dd>
+                        <dt>Estado</dt>
+                        @{string estado = Model.estado == 1 ? "Activo" : "Inactivo";
+
+                            <dd> @estado </dd>
+                        }
+                        <dt>Empleado asignado</dt>
+                        @{ foreach (var e in Model.empleado)
+                            {
+                                <dd>@e.primer_nombre @e.primer_apellido</dd>
+                            }
+
+                        }
+                        <dt>Rol</dt>
+                        @{ foreach (var r in Model.rol)
+                            {
+                                <dd>@r.nombre</dd>
+                            }
+
+                        }
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>Permisos</dt>
+                        @{
+                            foreach (var p in Model.permisos)
+                            {
+                               <dd>@p.nombre</dd>
+                            }
+                        }           
+
+                    </dl>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+

@@ -1,0 +1,126 @@
+﻿@model Models.rol
+
+@{
+    
+    Layout = null;
+}
+
+
+<section class="content" style="padding:0px!important">
+
+
+    <div class="box box-primary" style="padding:15px!important;border-top-width:4px">
+
+        <div class="box-header with-border" style="padding-top:0px">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h3 class="box-title">Editar rol - @Model.nombre</h3>
+
+        </div>
+
+
+
+        @using (Html.BeginForm("Edit", "Rol", FormMethod.Post, new {@id="EditRol"}))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="box-body">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.id_rol)
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label pull-left" >Nombre</label>
+                        <div class="col-md-10" >
+                            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label pull-left">Estado</label>
+                        <div class="col-md-10" >
+                            <select name="Estado" class="form-control" id="ddlEstado">
+                                @{
+            if (Model.estado == 1)
+            {
+                    <option value=1>Activo </option>
+                                    <option value=2>Inactivo </option>
+            }
+            else
+            {
+                    <option value=2>Inactivo </option>
+                                    <option value=1>Activo </option>
+            }
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Permisos</label>
+                        <div class="checkbox col-md-10 ">
+                            @foreach (var r in Model.Allmodulos)
+                            {
+                                var cheked = string.Empty;
+                                foreach (var r2 in Model.modulos)
+                                {
+                                    if (r.id_modulo == r2.id_modulo)
+                                    {
+                                        cheked = "checked";
+                                    }
+                                }
+                                <label style="width:100%"><input type="checkbox" @cheked name="Permisos" value="@r.id_modulo" />@r.nombre</label>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+                <div class="box-footer">
+                    <div>
+                        <input type="submit" value="Editar" style="float:right;width:100px" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            </div>
+        }
+
+
+    </div>
+
+
+
+    </section>
+
+
+<script>
+ $(document).ready(function () {
+
+
+     $('#EditRol')
+         .bootstrapValidator({
+             message: 'Este valor no es válido',
+             fields: {
+                 nombre: {
+                     message: 'Nombre no válido',
+                     validators: {
+                         notEmpty: {
+                             message: 'Campo requerido'
+                         },
+                         stringLength: {
+                             max: 20,
+                             message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                         },
+                         regexp: {
+                             regexp: /^[a-z0-9,.()-\s]+$/i,
+                             message: 'No se admiten carácteres especiales'
+                         }
+                     }
+                 }
+
+             }
+         })
+ });
+</script>

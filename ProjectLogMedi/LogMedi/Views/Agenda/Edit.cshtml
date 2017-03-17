@@ -1,0 +1,139 @@
+﻿@model Models.DetallesCita
+
+@{
+    Layout = null;
+}
+<style>
+    TextArea {
+        width: 100%;
+        height: 90px;
+    }
+</style>
+
+<section class="content" style="padding:0px!important">
+
+
+    <div class="box box-primary" style="padding:15px!important;border-top-width:4px">
+
+        <div class="box-header with-border" style="padding-top:0px">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h3 class="box-title">Editar cita - @Model.id_cita</h3>
+
+        </div>
+
+
+
+        @using (Html.BeginForm("Edit", "Agenda", FormMethod.Post, new {@id="EditAgenda"}))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="box-body">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.id_cita)
+                    @Html.HiddenFor(model => model.id_horario)
+                    @Html.HiddenFor(model => model.id_paciente)
+                    @Html.HiddenFor(model => model.id_usuario)
+                    @Html.HiddenFor(model => model.fecha)
+
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <dt>ID</dt>
+                            <dd>@Model.id_cita</dd>
+                            <dt>Agenda</dt>
+                            <dd>@Model.usuario.usuario</dd>
+                            <dt>Fecha</dt>
+                            <dd>@Model.fecha</dd>
+                            <dt>Hora</dt>
+                            <dd>@Model.horario.hora</dd>
+                            <dt>Paciente</dt>
+                            <dd>@Model.paciente.primer_nombre @Model.paciente.segundo_nombre @Model.paciente.primer_apellido @Model.paciente.segundo_apellido</dd>
+
+                            <dt># Documento</dt>
+                            <dd>@Model.id_paciente</dd>
+                            </dl>
+                            <hr />
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="text-align:right">Observaciones</label>
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.observaciones, new { htmlAttributes = new { @class = "form-control", @placeholder = "Observaciones de la cita..." } })
+                                @Html.ValidationMessageFor(model => model.observaciones, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="text-align:left">Estado</label>
+                            <div class="col-md-10">
+                                <select name="ddlEstado" class="form-control select2" style="width:100%" id="ddlEstado">
+                                   
+                                    @{
+            foreach (var u in Model.estado_cita)
+            {
+                                            <option value=@u.id_estado_cita>@u.nombre </option>
+            }
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+
+
+                       
+
+
+
+
+
+                    </div>
+                <div class="box-footer">
+                    <div>
+                        <input type="submit" value="Editar" style="float:right;width:100px" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            </div>
+        }
+
+
+    </div>
+   
+
+
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#EditAgenda')
+            .bootstrapValidator({
+                message: 'Este valor no es válido',
+
+                fields: {
+  
+                   observaciones: {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 200,
+                                message: 'No puedes sobrepasar los 200 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9-()",.;:%$=\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    }
+
+                }
+            })
+           .on('success.field.fv', function (e, data) {
+
+           });
+    });
+
+</script>
+
+
+

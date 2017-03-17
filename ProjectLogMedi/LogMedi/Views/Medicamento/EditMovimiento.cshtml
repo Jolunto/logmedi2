@@ -1,0 +1,125 @@
+﻿@model Models.detalleMovimiento
+
+@{
+    Layout = null;
+}
+
+<style>
+    TextArea {
+        width: 100%;
+        height: 70px;
+    }
+</style>
+<section class="content" style="padding:0px!important">
+
+
+    <div class="box box-primary" style="padding:15px!important;border-top-width:4px">
+
+        <div class="box-header with-border" style="padding-top:0px">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h3 class="box-title">Editar movimiento - @Model.movimiento.id_movimiento</h3>
+
+        </div>
+
+
+
+        @using (Html.BeginForm("EditMovimiento", "Medicamento", FormMethod.Post, new { @id = "FormEditMovimiento" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="box-body">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.movimiento.id_movimiento)
+                    @Html.HiddenFor(model => model.movimiento.fecha)
+
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="text-align:left">Fecha</label>
+                            <div class="col-md-10">
+                                <label class="form-control">@Model.movimiento.fecha</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="text-align:left">Observación</label>
+                            <div class="col-md-10">
+                                <textarea class="form-control" name="observacion" id="observacion">@Model.movimiento.observacion</textarea>                              
+                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Estado</label>
+                            <div class="col-md-10">
+                                <select name="Estado" class="form-control" id="Estado">
+                                    @{
+            if (Model.movimiento.estado == 1)
+            {
+                                            <option value=1>Activa </option>
+                                            <option value=2>Anulada </option>
+            }
+            else
+            {
+                                            <option value=2>Anulada </option>
+            }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                </div>
+                <div class="box-footer">
+                    <div>
+                        <input type="submit" value="Editar" style="float:right;width:100px" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            </div>
+        }
+
+
+    </div>
+
+
+
+</section>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#FormEditMovimiento')
+            .bootstrapValidator({
+                message: 'Este valor no es válido',
+
+                fields: {
+
+                    observacion: {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 200,
+                                message: 'No puedes sobrepasar los 200 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.()"'\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    }
+
+                }
+            })
+           .on('success.field.fv', function (e, data) {
+
+           });
+    });
+
+</script>
+

@@ -1,0 +1,264 @@
+﻿@model Models.CompraMedicamento
+
+@{
+    ViewBag.Title = "Ingreso medicamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    TextArea {
+        width: 100%;
+        height: 70px;
+    }
+</style>
+
+<section class="content-header">
+    <h1>
+      Gestión general -  Ingreso de medicamentos
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index","Home")"><i class="fa fa-dashboard"></i>Inicio</a></li>
+        <li><a href="#">Gestión general</a></li>
+        <li><a href="@Url.Action("Movimiento","Medicamento")">Movimientos</a></li>
+        <li class="active">Ingreso</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <div class="box box-info" style="padding:15px;padding-top:5px">
+
+
+
+        @using (Html.BeginForm())
+        {
+            <div class="form-horizontal">
+                <div class="box-header">                    
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            @Html.HiddenFor(x => x.id_medicamento, new { @id = "id_medicamento" })
+                            @Html.TextBoxFor(x => x.nombre, new { @class = "form-control Buscar", placeholder = "Buscar Medicamento" })
+                            @Html.ValidationMessage("producto_agregar", null, new { @class = "label label-danger" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.HiddenFor(x => x.existencia)
+                            @Html.TextBoxFor(x => x.existencia, new { @class = "form-control", placeholder = "Stock", @id = "existencias" })
+                        </div>
+                        <div id="vali">
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(x => x.cantidad, new { @class = "form-control", placeholder = "Cantidad" })
+                        </div>
+                        
+                            <div class="col-md-2">
+                                <button class="btn btn-primary" type="submit" style="width:100%" value="agregar_producto" name="action">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                @if (Model.Productos.Count > 0)
+                {
+                    <div class="box-body table-responsive ">
+                        <div id="CargarTabla" style="padding:0px;margin:0px; margin-bottom:5px">
+                            <table class="table table-bordered table-hover col-md-12" id="tblDetalles">
+                                <thead>
+                                    <tr>
+
+                                        <th style="width:50%">Concepto</th>
+                                        <th style="width:40%">Cantidad</th>                                        
+                                        <th style="width:10%"></th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+
+                                    @foreach (var p in Model.Productos)
+                                    {
+
+
+
+
+
+                                        <tr>
+                                            <td>@p.nombre</td>
+                                            <td>@p.cantidad</td>                                        
+
+                                            <td class="text-right">
+                                                <button class="btn btn-danger btn-xs btn-block btn-retira" type="submit" value="@p.id_medicamento" style="width:80%;margin-left:10%;margin-right:10%" name="action">
+                                                    <i class="glyphicon glyphicon-remove"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+
+
+                        </div>
+                        <hr />
+                        <div id="vali2">
+                            <div class="col-md-10">
+                                <div class="form-group" style="padding:0px;margin:0px;">
+                                    <div class="col-md-2">Observaciones:</div>
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.observacion, new { htmlAttributes = new { @class = "form-control", placeholder = "Observaciones de la cita..." } })
+                                        @Html.ValidationMessageFor(model => model.observacion, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2" style="padding-right:0px">
+                                <button class="btn btn-block btn-primary" type="submit" value="generar" name="action">Registrar</button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                }
+
+
+
+            </div>
+
+        }
+        <!-- /.box -->
+    </div>
+</section>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#vali')
+            .bootstrapValidator({
+                message: ' ',
+
+                fields: {
+
+                    cantidad: {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 11,
+                                message: 'No puedes sobrepasar los 11 dígitos en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[0-9\s\.]+$/,
+                                message: 'No se admiten carácteres especiales'
+                            },
+                            integer: {
+                                message: 'El valor no es númerico'
+                            }
+                        }
+                    }
+
+
+                }
+            })
+           .on('success.field.fv', function (e, data) {
+
+           });
+
+        $('#vali2')
+          .bootstrapValidator({
+              message: ' ',
+
+              fields: {
+
+                  observacion: {
+                      message: 'Campo no válido',
+                      validators: {
+                          stringLength: {
+                              max: 200,
+                              message: 'No puedes sobrepasar los 200 carácteres en este campo'
+                          },
+                          regexp: {
+                              regexp: /^[a-zA-Z0-9\s\.()-,"@@]+$/,
+                              message: 'No se admiten carácteres especiales'
+                          },
+
+                      }
+                  }
+
+              }
+          })
+         .on('success.field.fv', function (e, data) {
+
+         });
+    });
+
+</script>
+
+
+
+@section scripts{
+
+
+    <link href="~/Content/plugin/datepicker/datepicker3.css" rel="stylesheet" />
+    <script src="~/Content/plugin/datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/Content/plugin/slimScroll/jquery.slimscroll.min.js"></script>
+    <script>
+        $(function () {
+            $('#CargarTabla').slimScroll({
+               height: '250px'
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $("#existencias").attr('disabled', 'disabled');
+        LimpiarAgregarProducto();
+        $(document).ready(function () {
+
+            /* Autocomplete de producto, jquery UI */
+            $(".Buscar").autocomplete({
+                dataType: 'JSON',
+                source: function (request, response) {
+                    jQuery.ajax({
+                        url: '/Venta/BuscarMedicamento',
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            nombre: request.term
+                        },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    id: item.id_medicamento,                                    
+                                    value: item.nombre,
+                                    extistencia: item.existencia
+                                }
+                            }))
+                        }
+                    })
+                },
+                select: function (e, ui) {
+                    $("#id_medicamento").val(ui.item.id);                    
+                    $("#existencia").val(ui.item.extistencia);
+                    $("#cantidad").focus();
+                    $("#existencias").val(ui.item.extistencia);
+                }
+            })
+        })
+        function LimpiarAgregarProducto() {
+            $("#id_medicamento").val("");           
+            $("#existencias").val("");
+            $("#cantidad").val(1);
+            $(".Buscar").val("")
+        }
+        $("#cantidad").prop('type', 'number');
+    </script>
+    
+<script src="~/Scripts/Medicamento/Compra/CompraCreate.js"></script>
+
+}
+
+
+

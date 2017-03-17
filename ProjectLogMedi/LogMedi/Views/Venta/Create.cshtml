@@ -1,0 +1,310 @@
+﻿@model Models.vistaVenta
+
+@{
+    ViewBag.Title = "Venta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="content-header">
+    <h1>
+        Ventas
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index","Home")"><i class="fa fa-dashboard"></i>Inicio</a></li>
+        <li><a href="#">Gestión general - Venta</a></li>
+        <li class="active">Crear</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <div class="box box-info" style="padding:15px;padding-top:5px">
+
+
+
+        @using (Html.BeginForm("Create", "Venta", FormMethod.Post, new { id = "frm-comprobante" }))
+        {
+            <div class="form-horizontal" id="Validar">
+                <div class="box-header">
+
+
+
+
+
+
+                    <div class="form-group">
+                        
+                        <label class="col-md-2 control-label" style="text-align:left">Documento </label>
+
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(x => x.id_paciente, new { @class = "form-control", placeholder = "Ingrese id del paciente" })
+                            @Html.ValidationMessage("Cliente", null, new { @class = "label label-danger" })
+                        </div>
+
+                       
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            @Html.HiddenFor(x => x.id_medicamento, new { @id = "id_medicamento" })
+                            @Html.TextBoxFor(x => x.nombre, new { @class = "form-control Buscar", placeholder = "Buscar Medicamento" })
+                            @Html.ValidationMessage("producto_agregar", null, new { @class = "label label-danger" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.HiddenFor(x => x.existencia)
+                            @Html.TextBoxFor(x => x.existencia, new { @class = "form-control", placeholder = "Stock", @id = "existencias" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(x => x.cantidad, new { @class = "form-control", placeholder = "Cantidad" })
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">$</span>
+                                @Html.TextBoxFor(x => x.costo, new { @class = "form-control", placeholder = "Precio", @id = "precio" })
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-primary" type="submit" value="agregar_producto" name="action">
+                                <i class="glyphicon glyphicon-plus"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                   
+                </div>
+               
+                @if (Model.Productos.Count > 0)
+                {
+                    <div class="box-body table-responsive " >
+                        <div id="CargarTabla" style="padding:0px;margin:0px; margin-bottom:5px">
+                            <table class="table table-bordered table-hover col-md-12" id="tblDetalles">
+                                <thead>
+                                    <tr>
+
+                                        <th style="width:40%">Concepto</th>
+                                        <th style="width:15%">Cantidad</th>
+                                        <th style="width:15%">Precio Unitario</th>
+                                        <th style="width:15%">Monto</th>
+                                        <th style="width:15%"></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+
+                                    @foreach (var p in Model.Productos)
+                                    {
+
+
+
+
+
+                                        <tr>
+                                            <td>@p.nombre</td>
+                                            <td>@p.cantidad</td>
+                                            <td>@string.Format("{0:c}", p.costo)</td>
+                                            <td>@string.Format("{0:c}", p.subtotal())</td>
+
+                                            <td class="text-right">
+                                                <button class="btn btn-danger btn-xs btn-block btn-retirar" type="submit" value="@p.id_medicamento" name="action">
+                                                    <i class="glyphicon glyphicon-remove"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+
+
+                        </div>
+                        <hr/>
+                        <div class="col-md-6" style="text-align:left">
+                            <button class="btn btn-primary btn-block btn-sm pull-left" type="submit" value="generar" style="width:30%" name="action">Generar comprobante</button>
+
+                        </div>
+                        <div class="col-md-6" style="text-align:right;font-size:20px">
+                            <label>Total</label>
+                            @string.Format("{0:c}", Model.Total())
+                           
+                        </div>
+                       
+                    </div>
+                    
+                }
+
+
+
+            </div>
+
+        }
+        <!-- /.box -->
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Validar')
+            .bootstrapValidator({
+                message: 'Este valor no es válido',
+
+                fields: {
+
+                   id_paciente: {
+                        message: 'Campo no válido',
+                        validators: {
+
+                            notEmpty:{
+
+                                message: 'El campo es requerido'
+,                            },
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                   },
+                   nombre: {
+                       message: 'Campo no válido',
+                       validators: {
+
+                           notEmpty: {
+
+                               message: 'El campo es requerido'
+,
+                           },
+                           stringLength: {
+                               max: 20,
+                               message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                           },
+                           regexp: {
+                               regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                               message: 'No se admiten carácteres especiales'
+                           }
+                       }
+                   },
+                   cantidad: {
+                       message: 'Campo no válido',
+                       validators: {
+
+                           notEmpty: {
+
+                               message: 'El campo es requerido'
+,
+                           },
+                           stringLength: {
+                               max: 11,
+                               message: 'No puedes sobrepasar los 11 dígitos en este campo'
+                           },
+                           regexp: {
+                               regexp: /^[0-9\s]+$/i,
+                               message: 'La cantidad no es válida'
+                           }
+                       }
+                   },
+                   costo: {
+                       message: 'Campo no válido',
+                       validators: {
+
+                           notEmpty: {
+
+                               message: 'El campo es requerido'
+,
+                           },
+                           stringLength: {
+                               max: 11,
+                               message: 'No puedes sobrepasar los 11 dígitos en este campo'
+                           },
+                           regexp: {
+                               regexp: /^[0-9\s]+$/i,
+                               message: 'el costo no es válido'
+                           }
+                       }
+                   }
+
+                }
+            })
+           .on('success.field.fv', function (e, data) {
+
+           });
+    });
+
+</script>
+
+@section scripts{
+
+
+    <link href="~/Content/plugin/datepicker/datepicker3.css" rel="stylesheet" />
+    <script src="~/Content/plugin/datepicker/bootstrap-datepicker.js"></script>
+<script src="~/Content/plugin/slimScroll/jquery.slimscroll.min.js"></script>
+<script>
+        $(function () {
+            $('#CargarTabla').slimScroll({
+               height: '250px'
+            });
+        });
+</script>
+
+    <script type="text/javascript">
+        $("#existencias").attr('disabled', 'disabled');
+        LimpiarAgregarProducto();
+        $(document).ready(function () {
+
+            /* Autocomplete de producto, jquery UI */
+            $(".Buscar").autocomplete({
+                dataType: 'JSON',
+                source: function (request, response) {
+                    jQuery.ajax({
+                        url: '/Venta/BuscarMedicamento',
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            nombre: request.term
+                        },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    id: item.id_medicamento,
+                                    precio: item.costo,
+                                    value: item.nombre,
+                                    extistencia: item.existencia
+                                }
+                            }))
+                        }
+                    })
+                },
+                select: function (e, ui) {
+                    $("#id_medicamento").val(ui.item.id);
+                    $("#precio").val(ui.item.precio);
+                    $("#existencia").val(ui.item.extistencia);
+                    $("#cantidad").focus();
+                    $("#existencias").val(ui.item.extistencia);
+                }
+            })
+        })
+        function LimpiarAgregarProducto() {
+            $("#id_medicamento").val("");
+            $("#precio").val("");
+            $("#existencias").val("");
+            $("#cantidad").val(1);
+            $(".Buscar").val("")
+        }
+
+    </script>
+<script src="~/Scripts/Venta/Crear.js"></script>
+
+}
+
+
+

@@ -1,0 +1,77 @@
+﻿@model Models.detalleMovimiento
+
+@{
+    Layout = null;
+}
+
+
+<section class="content" style="padding:0px!important">
+
+
+    <div class="box box-primary" style="padding:15px!important;border-top-width:4px">
+
+        <div class="box-header with-border" style="padding-top:0px">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h3 class="box-title">Detalles movimiento - @Model.movimiento.id_movimiento</h3>
+
+        </div>
+        <div class="form-horizontal">
+            <div class="box-body">
+                <div class="panel-body">
+                    <dl class="dl-horizontal">                       
+                        
+                        <dt>Fecha</dt>
+                        <dd>@Model.movimiento.fecha</dd>                        
+                        <dt>Estado</dt>
+                        @{string estado = Model.movimiento.estado == 1 ? "Activo" : "Anulado";
+                        <dd> @estado </dd>}
+                        <dt>Observación
+                        </dt>
+                        <dd>@Model.movimiento.observacion</dd>          
+                        
+                    </dl>
+
+                    <div class="box-body table-responsive ">
+                        <table class="table table-bordered table-hover col-md-12" id="tblVentas">
+                            <thead>
+                                <tr>
+                                    <th style="width:25%">Medicamento</th>
+                                    <th style="width:25%">Presentación</th>
+                                    <th style="width:25%">Contenido</th>
+                                    <th style="width:25%">Cantidad</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var v in Model.detalle)
+                                {
+                                    <tr>
+
+                                        <td>@v.medicamento</td>
+                                        <td>@v.presentacion</td>
+                                        <td>@v.contenido</td>
+                                        <td>@v.cantidad</td>                                        
+                                    </tr>
+                                }                             
+                                </tbody>
+                        </table>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    </section>

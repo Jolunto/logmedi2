@@ -1,0 +1,285 @@
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\roslyn\csc.exe
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\roslyn\System.Collections.Immutable.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\roslyn\System.Reflection.Metadata.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\roslyn\vbc.exe
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\roslyn\VBCSCompiler.exe
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\roslyn\VBCSCompiler.exe.config
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\LogMedi.dll.config
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\LogMedi.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\LogMedi.pdb
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\Antlr3.Runtime.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\Microsoft.Web.Infrastructure.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\Newtonsoft.Json.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.Helpers.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.Mvc.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.Optimization.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.Razor.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Deployment.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Razor.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\WebGrease.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.Helpers.xml
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.Mvc.xml
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.Optimization.xml
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.Razor.xml
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.xml
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Deployment.xml
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Razor.xml
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\Antlr3.Runtime.pdb
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\Newtonsoft.Json.xml
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\es\System.Web.Helpers.resources.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\es\System.Web.Mvc.resources.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\es\System.Web.Optimization.resources.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\es\System.Web.Razor.resources.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.resources.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.Deployment.resources.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.Razor.resources.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.csprojResolveAssemblyReference.cache
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.pdb
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\BusinessLogic.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\EntityFramework.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\EntityFramework.SqlServer.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\Models.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\MySql.Data.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\MySql.Data.Entity.EF6.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\BusinessLogic.pdb
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\Models.pdb
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\EntityFramework.xml
+E:\LOG MEDI PROYECTO\ProjectLogMedi\LogMedi\bin\EntityFramework.SqlServer.xml
+F:\Git\ProjectLogMedi\LogMedi\bin\roslyn\csc.exe
+F:\Git\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Git\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Git\ProjectLogMedi\LogMedi\bin\roslyn\System.Collections.Immutable.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\roslyn\System.Reflection.Metadata.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\roslyn\vbc.exe
+F:\Git\ProjectLogMedi\LogMedi\bin\roslyn\VBCSCompiler.exe
+F:\Git\ProjectLogMedi\LogMedi\bin\roslyn\VBCSCompiler.exe.config
+F:\Git\ProjectLogMedi\LogMedi\bin\LogMedi.dll.config
+F:\Git\ProjectLogMedi\LogMedi\bin\LogMedi.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\LogMedi.pdb
+F:\Git\ProjectLogMedi\LogMedi\bin\Antlr3.Runtime.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\BusinessLogic.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\EntityFramework.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\EntityFramework.SqlServer.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\Microsoft.Web.Infrastructure.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\Models.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\MySql.Data.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\MySql.Data.Entity.EF6.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\Newtonsoft.Json.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Helpers.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Mvc.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Optimization.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Razor.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Deployment.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Razor.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\WebGrease.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\BusinessLogic.pdb
+F:\Git\ProjectLogMedi\LogMedi\bin\Models.pdb
+F:\Git\ProjectLogMedi\LogMedi\bin\EntityFramework.xml
+F:\Git\ProjectLogMedi\LogMedi\bin\EntityFramework.SqlServer.xml
+F:\Git\ProjectLogMedi\LogMedi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Helpers.xml
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Mvc.xml
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Optimization.xml
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Razor.xml
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.xml
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Deployment.xml
+F:\Git\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Razor.xml
+F:\Git\ProjectLogMedi\LogMedi\bin\Antlr3.Runtime.pdb
+F:\Git\ProjectLogMedi\LogMedi\bin\Newtonsoft.Json.xml
+F:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.Helpers.resources.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.Mvc.resources.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.Optimization.resources.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.Razor.resources.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.resources.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.Deployment.resources.dll
+F:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.Razor.resources.dll
+F:\Git\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.csprojResolveAssemblyReference.cache
+F:\Git\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.dll
+F:\Git\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.pdb
+D:\Git\ProjectLogMedi\LogMedi\bin\roslyn\csc.exe
+D:\Git\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Git\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Git\ProjectLogMedi\LogMedi\bin\roslyn\System.Collections.Immutable.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\roslyn\System.Reflection.Metadata.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\roslyn\vbc.exe
+D:\Git\ProjectLogMedi\LogMedi\bin\roslyn\VBCSCompiler.exe
+D:\Git\ProjectLogMedi\LogMedi\bin\roslyn\VBCSCompiler.exe.config
+D:\Git\ProjectLogMedi\LogMedi\bin\LogMedi.dll.config
+D:\Git\ProjectLogMedi\LogMedi\bin\LogMedi.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\LogMedi.pdb
+D:\Git\ProjectLogMedi\LogMedi\bin\Antlr3.Runtime.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\BusinessLogic.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\EntityFramework.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\EntityFramework.SqlServer.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\Microsoft.Web.Infrastructure.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\Models.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\MySql.Data.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\MySql.Data.Entity.EF6.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\Newtonsoft.Json.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Helpers.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Mvc.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Optimization.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Razor.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Deployment.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Razor.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\WebGrease.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\BusinessLogic.pdb
+D:\Git\ProjectLogMedi\LogMedi\bin\Models.pdb
+D:\Git\ProjectLogMedi\LogMedi\bin\EntityFramework.xml
+D:\Git\ProjectLogMedi\LogMedi\bin\EntityFramework.SqlServer.xml
+D:\Git\ProjectLogMedi\LogMedi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Helpers.xml
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Mvc.xml
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Optimization.xml
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.Razor.xml
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.xml
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Deployment.xml
+D:\Git\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Razor.xml
+D:\Git\ProjectLogMedi\LogMedi\bin\Antlr3.Runtime.pdb
+D:\Git\ProjectLogMedi\LogMedi\bin\Newtonsoft.Json.xml
+D:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.Helpers.resources.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.Mvc.resources.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.Optimization.resources.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.Razor.resources.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.resources.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\Git\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\Git\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.csprojResolveAssemblyReference.cache
+D:\Git\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.dll
+D:\Git\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.pdb
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\csc.exe
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\System.Collections.Immutable.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\System.Reflection.Metadata.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\vbc.exe
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\VBCSCompiler.exe
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\VBCSCompiler.exe.config
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\LogMedi.dll.config
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\LogMedi.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\LogMedi.pdb
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\Antlr3.Runtime.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\BusinessLogic.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\EntityFramework.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\EntityFramework.SqlServer.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\Microsoft.Web.Infrastructure.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\Models.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\MySql.Data.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\MySql.Data.Entity.EF6.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\Newtonsoft.Json.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Helpers.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Mvc.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Optimization.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Razor.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Deployment.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Razor.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\WebGrease.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\BusinessLogic.pdb
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\Models.pdb
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\EntityFramework.xml
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\EntityFramework.SqlServer.xml
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Helpers.xml
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Mvc.xml
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Optimization.xml
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Razor.xml
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.xml
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Deployment.xml
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Razor.xml
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\Antlr3.Runtime.pdb
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\Newtonsoft.Json.xml
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.Helpers.resources.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.Mvc.resources.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.Optimization.resources.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.Razor.resources.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.resources.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.Deployment.resources.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.Razor.resources.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.csprojResolveAssemblyReference.cache
+F:\Respaldo\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.dll
+F:\Respaldo\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.pdb
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\csc.exe
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\System.Collections.Immutable.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\System.Reflection.Metadata.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\vbc.exe
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\VBCSCompiler.exe
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\roslyn\VBCSCompiler.exe.config
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\LogMedi.dll.config
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\LogMedi.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\LogMedi.pdb
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\Antlr3.Runtime.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\BusinessLogic.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\EntityFramework.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\EntityFramework.SqlServer.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\Microsoft.Web.Infrastructure.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\Models.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\MySql.Data.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\MySql.Data.Entity.EF6.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\Newtonsoft.Json.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Helpers.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Mvc.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Optimization.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Razor.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Deployment.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Razor.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\WebGrease.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\BusinessLogic.pdb
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\Models.pdb
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\EntityFramework.xml
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\EntityFramework.SqlServer.xml
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Helpers.xml
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Mvc.xml
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Optimization.xml
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.Razor.xml
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.xml
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Deployment.xml
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\System.Web.WebPages.Razor.xml
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\Antlr3.Runtime.pdb
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\Newtonsoft.Json.xml
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.Helpers.resources.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.Mvc.resources.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.Optimization.resources.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.Razor.resources.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.resources.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.csprojResolveAssemblyReference.cache
+D:\Respaldo\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.dll
+D:\Respaldo\ProjectLogMedi\LogMedi\obj\Debug\LogMedi.pdb

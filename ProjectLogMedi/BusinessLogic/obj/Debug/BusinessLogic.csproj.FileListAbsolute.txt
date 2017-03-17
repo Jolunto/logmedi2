@@ -1,0 +1,56 @@
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.pdb
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.pdb
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.dll.config
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.SqlServer.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\bin\Debug\Models.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\bin\Debug\MySql.Data.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\bin\Debug\MySql.Data.Entity.EF6.dll
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\bin\Debug\Models.pdb
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.xml
+E:\LOG MEDI PROYECTO\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.dll.config
+D:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.dll
+D:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.pdb
+D:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.dll
+D:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\Models.dll
+D:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\MySql.Data.dll
+D:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\Models.pdb
+D:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.xml
+D:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Git\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.dll
+D:\Git\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.pdb
+F:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.dll.config
+F:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.dll
+F:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.pdb
+F:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.dll
+F:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.SqlServer.dll
+F:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\Models.dll
+F:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\MySql.Data.dll
+F:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\MySql.Data.Entity.EF6.dll
+F:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\Models.pdb
+F:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.xml
+F:\Git\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
+F:\Git\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
+F:\Git\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.dll
+F:\Git\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.pdb
+D:\Respaldo\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.dll.config
+D:\Respaldo\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.dll
+D:\Respaldo\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.pdb
+D:\Respaldo\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.dll
+D:\Respaldo\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.SqlServer.dll
+D:\Respaldo\ProjectLogMedi\BusinessLogic\bin\Debug\Models.dll
+D:\Respaldo\ProjectLogMedi\BusinessLogic\bin\Debug\MySql.Data.dll
+D:\Respaldo\ProjectLogMedi\BusinessLogic\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\Respaldo\ProjectLogMedi\BusinessLogic\bin\Debug\Models.pdb
+D:\Respaldo\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.xml
+D:\Respaldo\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
+D:\Respaldo\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Respaldo\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.dll
+D:\Respaldo\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.pdb

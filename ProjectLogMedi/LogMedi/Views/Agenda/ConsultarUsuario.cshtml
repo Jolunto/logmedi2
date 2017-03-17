@@ -1,0 +1,112 @@
+﻿@model Models.agenda
+
+@{
+    Layout = null;
+
+}
+
+<style> .botones{
+         padding-bottom: 1px;
+    padding-top: 1px;
+    
+ }
+    
+    </style>
+
+<table class="table table-striped table-hover col-md-12" id="tblAgenda">
+    <thead>
+        <tr>
+            <th>Hora</th>
+            <th>Paciente</th>
+            <th>Documento</th>
+            <th>Contacto</th>
+            <th>Estado cita</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        @foreach (var a in Model.horario)
+        {
+            <tr>
+                <td>@a.hora</td>
+                
+                    @if (Model.ConsultaUsuario.FindAll(c => c.id_horario == a.id_horario).Count > 0)
+                    {
+
+                        <td>@Model.ConsultaUsuario.Find(c => c.id_horario == a.id_horario).paciente</td>
+                                    <td>@Model.ConsultaUsuario.Find(c => c.id_horario == a.id_horario).id_paciente</td>
+                                    <td>@Model.ConsultaUsuario.Find(c => c.id_horario == a.id_horario).contacto</td>
+                        switch (Model.ConsultaUsuario.Find(c => c.id_horario == a.id_horario).estado)
+                        {
+                            case 1:
+                                <td><span class="label label-success">Pendiente</span></td>
+                                break;
+                            case 2:
+                                <td><span class="label label-success">Confirmada</span></td>
+                                break;
+                            case 3:
+                                <td><span class="label label-success">Atendida</span></td>
+                                break;
+
+                            default:
+
+                                break;
+                        }
+                        if (Model.fecha.AddDays(1) < DateTime.Now)
+                        {
+                            <td class="text-right">
+                                <a class="btnDetalles botones btn btn-default" href="#myModal" data-toggle="modal" data-id="@Model.ConsultaUsuario.Find(c => c.id_horario == a.id_horario).id_cita"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="text-right">
+                                <a class="btnEditar botones btn btn-default" href="#myModal" data-toggle="modal" data-id="@Model.ConsultaUsuario.Find(c => c.id_horario == a.id_horario).id_cita"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                <a class="btnDetalles botones btn btn-default" href="#myModal" data-toggle="modal" data-id="@Model.ConsultaUsuario.Find(c => c.id_horario == a.id_horario).id_cita"><i class="fa fa-eye" aria-hidden="true"></i></a>
+
+                            </td>
+
+
+                        }
+                    }
+                    else
+                    {
+                        if (Model.fecha.AddDays(1) < DateTime.Now)
+                        {
+
+                            <td colspan="5" class="text-right"></td>
+                        }
+                        else
+                        {
+                            <td colspan="4" style="text-align:center"> -- </td>
+                            <td class="text-right">
+                                <a class="btnNuevo botones btn btn-default"  href="#myModal" data-toggle="modal" data-id="@a.id_horario"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                            </td>
+
+                        }
+
+                    }
+                
+            </tr>
+                    }
+
+    </tbody>
+</table>
+
+
+<script>
+    $(".btnNuevo").click(function (eve) {
+        $("#modal-content").load("/Agenda/Create/" + $(this).data("id"));
+    });
+
+    $(".btnDetalles").click(function (eve) {
+        $("#modal-content").load("/Agenda/Details/" + $(this).data("id"));
+    })
+
+
+    $(".btnEditar").click(function (eve) {
+        $("#modal-content").load("/Agenda/Edit/" + $(this).data("id"));
+    })
+
+</script>
+

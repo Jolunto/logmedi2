@@ -1,0 +1,164 @@
+﻿@model Models.medicamento_presentacion
+
+@{
+    Layout = null;
+}
+
+<section class="content" style="padding:0px!important">
+
+
+    <div class="box box-primary" style="padding:15px!important;border-top-width:4px">
+
+        <div class="box-header with-border" style="padding-top:0px">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h3 class="box-title">Editar medicamento - @Model.id_medicamento_presentacion
+            </h3>
+
+        </div>
+
+
+
+        @using (Html.BeginForm("Edit", "Medicamento", FormMethod.Post,new{@id="Form3"}))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="box-body">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.id_medicamento_presentacion)                   
+                    @Html.HiddenFor(model => model.existencia)
+                    @Html.HiddenFor(model => model.id_medicamento)
+                    @Html.HiddenFor(model => model.id_presentacion)
+
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label" style="text-align:left">Medicamento</label>
+                        <div class="col-md-12">
+                            <select name="ddlMedicamento" class="form-control" id="ddlMedicamento">
+                                @{
+                                    foreach (var m in Model.medicamento)
+                                    {
+                                        <option>@m.nombre</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label" style="text-align:left">Presentación</label>
+                        <div class="col-md-12">
+                            <select name="ddlPresentacion" class="form-control" id="ddlPresentacion">
+                                @{
+                                    foreach (var m in Model.presentacion)
+                                    {
+                                        <option>@m.nombre</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" style="text-align:left">Contenido</label>
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.contenido, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.contenido, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" style="text-align:left">Valor</label>
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.valor, new { htmlAttributes = new { @class = "form-control",@step="any" } })
+                            @Html.ValidationMessageFor(model => model.valor, "", new { @class = "text-danger" })
+                        </div>
+                    </div>                
+                    
+                    <div class="form-group">
+                        <label class="col-lg-12 control-label" style="text-align:left">Estado</label>
+                        <div class="col-md-12">
+                            <select name="ddlEstado" class="form-control" id="ddlEstado">
+                                @{
+                                    if (Model.estado == 1)
+                                    {
+                                        <option value=1>Activo </option>
+                                        <option value=2>Inactivo </option>
+                                    }
+                                    else
+                                    {
+                                        <option value=2>Inactivo </option>
+                                        <option value=1>Activo </option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <div>
+                        <input type="submit" value="Editar" style="float:right;width:100px" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            </div>
+                                    }
+
+
+    </div>
+
+
+
+</section>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#Form3')
+            .bootstrapValidator({
+                message: 'Este valor no es válido',
+               
+                fields: {
+
+                    valor: {
+                        message: 'Campo no válido',
+                        validators: {
+                            notEmpty: {
+                                message: 'Campo requerido'
+                            },
+                            stringLength: {
+                                max: 10,
+                                message: 'No puedes sobrepasar los 10 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[0-9.,\s]+$/i,
+                                message: 'valor no correcto'
+                            },
+        
+                        }
+                    }, contenido: {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    }
+
+                }
+                    })
+           .on('success.field.fv', function (e, data) {
+
+           });
+    });
+
+</script>
+
+
+
+

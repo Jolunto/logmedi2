@@ -1,0 +1,254 @@
+﻿@model Models.empleado
+
+@{
+    Layout = null;
+}
+
+
+<section class="content" style="padding:0px!important">
+
+
+    <div class="box box-primary" style="padding:15px!important;border-top-width:4px">
+
+        <div class="box-header with-border" style="padding-top:0px">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h3 class="box-title">Registar nuevo empleado</h3>
+
+        </div>
+
+        @using (Html.BeginForm("Create", "Empleado", FormMethod.Post, new { @id = "CreateEmpleado" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="box-body">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Tipo de documento</label>
+                            <div class="col-md-12">
+                                <select name="ddlDocumento" class="form-control" id="ddlDocumento">
+                                    @{
+            foreach (var ti in Model.documentos)
+            {
+                    <option value=@ti.idtipo_documento>@ti.nombre </option>
+            }
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Documento</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.id_empleado, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.id_empleado, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Primer nombre</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.primer_nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.primer_nombre, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Segundo nombre</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.segundo_nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.segundo_nombre, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Primer apellido</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.primer_apellido, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.primer_apellido, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Segundo apellido</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.segundo_apellido, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.segundo_apellido, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Genero</label>
+                            <div class="col-md-12">
+                                <select name="ddlGenero" class="form-control" id="ddlGenero">
+
+                                    @{
+            foreach (var g in Model.generos)
+            {
+                <option value=@g.id_genero>@g.nombre </option>
+            }
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Teléfono</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Célular</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.celular, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.celular, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <div>
+                        <input type="submit" value="Registrar" style="float:right;width:100px" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+
+
+
+</section>
+<script>
+    $(document).ready(function () {
+
+        $('#CreateEmpleado')
+            .bootstrapValidator({
+                message: 'Este valor no es válido',
+                fields: {
+                    id_empleado: {
+                        message: 'Documento no válido',
+                        validators: {
+                            notEmpty: {
+                                message: 'El campo es necesario'
+                            },
+                            stringLength: {
+                                max: 15,
+                                message: 'No puedes sobre pasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+
+                        }
+                    },
+                    primer_nombre: {
+                        message: 'Campo no válido',
+                        validators: {
+                            notEmpty: {
+                                message: 'Campo requerido'
+                            },
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    segundo_nombre: {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    primer_apellido: {
+                        message: 'Campo no válido',
+                        validators: {
+                            notEmpty: {
+                                message: 'Campo requerido'
+                            },
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    segundo_apellido: {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    telefono: {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 25,
+                                message: 'No puedes sobrepasar los 25 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.()#-\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    celular: {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 25,
+                                message: 'No puedes sobrepasar los 25 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.()#-\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    }
+                }
+            });
+
+        if ($("#ddlDocumento").val() == 1 || $("#ddlDocumento").val() == 2 || $("#ddlDocumento").val() == 3 || $("#ddlDocumento").val() == 4) {
+            $("#id_empleado").prop('type', 'number');
+        }
+        
+    });
+
+
+</script>

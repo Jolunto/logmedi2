@@ -1,0 +1,342 @@
+﻿@model Models.paciente
+
+@{
+    Layout = null;
+}
+
+
+<section class="content" style="padding:0px!important">
+
+
+    <div class="box box-primary" style="padding:15px!important;border-top-width:4px">
+
+        <div class="box-header with-border" style="padding-top:0px">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h3 class="box-title">Registar nuevo paciente</h3>
+
+        </div>
+
+        @using (Html.BeginForm("Create", "Paciente", FormMethod.Post, new { @id = "Form2" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <div class="box-body">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Tipo de documento</label>
+                            <div class="col-md-12">
+                                <select name="ddlDocumento" class="form-control" id="ddlDocumento">
+                                    @{
+            foreach (var ti in Model.documentos)
+            {
+                <option value=@ti.idtipo_documento>@ti.nombre </option>
+            }
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Documento</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.id_paciente, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.id_paciente, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Primer nombre</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.primer_nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.primer_nombre, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Segundo nombre</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.segundo_nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.segundo_nombre, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Primer apellido</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.primer_apellido, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.primer_apellido, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Segundo apellido</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.segundo_apellido, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.segundo_apellido, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Fecha de nacimiento</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @class = "form-control", @id = "FechaDeNacimiento" } })
+                                @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Género</label>
+                            <div class="col-md-12">
+                                <select name="ddlGenero" class="form-control" id="ddlGenero">
+
+                                    @{
+            foreach (var g in Model.generos)
+            {
+                <option value=@g.id_genero>@g.nombre </option>
+            }
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Teléfono</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control", type="text" } })
+                                @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Célular</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.celular, new { htmlAttributes = new { @class = "form-control", type="text" } })
+                                @Html.ValidationMessageFor(model => model.celular, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Dirección</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12 control-label" style="text-align:left">Email</label>
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.correo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <div>
+                        <input type="submit" onclick="Mostrar(1);"  value="Registrar" style="float:right;width:100px" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</section>
+
+<script>
+    $('#FechaDeNacimiento').datepicker({
+        autoclose: true,
+        format: 'yyyy/mm/dd',
+        locale: 'es',
+    });
+
+    $(document).ready(function () {
+        //$("#busqueda").prop('required', true);
+        var hoy = moment().format('YYYY/MM/DD');
+        
+        $('#Form2')
+            .bootstrapValidator({
+                message: 'Este valor no es válido',
+               
+                fields: {
+                    id_paciente: {
+                        message: 'Documento no válido',
+                        validators: {
+                            notEmpty: {
+                                message: 'El documento del paciente es necesario'
+                            },
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+
+                        }
+                    },
+                    primer_nombre: {
+                        message: 'Nombre no válido',
+                        validators: {
+                            notEmpty: {
+                                message: 'Campo requerido'
+                            },
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    segundo_nombre: {
+                        message: 'Segundo nombre no válido',
+                        validators: {
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    }, primer_apellido: {
+                        message: 'Apellido no válido',
+                        validators: {
+                            notEmpty: {
+                                message: 'Campo requerido'
+                            },
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    }, segundo_apellido: {
+                        message: 'Apellido no válido',
+                        validators: {
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+
+                    }, fecha_nacimiento: {
+                        message: 'Fecha de nacimiento no válido',
+                        validators: {
+                            notEmpty: {
+                                message: 'Campo requerido'
+                            },
+                            callback: {
+                                message: 'Fecha de nacimiento debe ser menor a hoy',
+                                callback: function (value, validator) {
+                                    var m = new moment(value, 'YYYY/MM/DD', true);
+                                    if (!m.isValid()) {
+                                        return false;
+                                    }
+                                    return m.isBefore(moment().format('YYYY/MM/DD'));
+                                }
+
+                            }
+                        }
+                    },
+                    telefono: {
+                        message: 'Campo no válido',
+                        validators: {
+                            notEmpty: {
+                                message: 'Campo requerido'
+                            },
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.()-+\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    celular: {
+                        message: 'Campo no válido',
+                        validators: {
+
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.()-+\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    
+                    direccion: {
+                        message: 'Campo no válido',
+                        validators: {
+
+                            stringLength: {
+                                max: 50,
+                                message: 'No puedes sobrepasar los 50 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.#()-_\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    correo: {
+                        message: 'Campo no válido',
+                        validators: {
+
+                            stringLength: {
+                                max: 50,
+                                message: 'No puedes sobrepasar los 45 carácteres en este campo'
+                            },
+                            emailAddress: {
+                                message: 'El texto no corresponde a un correo válido'
+                            }
+                        }
+                    }
+
+                    
+                }
+                    })
+           .on('success.field.fv', function (e, data) {
+
+               
+           });
+    });
+
+    if ($("#ddlDocumento").val() == 1 || $("#ddlDocumento").val() == 2  || $("#ddlDocumento").val() == 3 || $("#ddlDocumento").val() == 4) {
+        $("#id_paciente").prop('type', 'number');
+    }
+
+    $("#FechaDeNacimiento").change(function () {
+        $('#Form2').bootstrapValidator('revalidateField', 'fecha_nacimiento');
+    });
+</script>

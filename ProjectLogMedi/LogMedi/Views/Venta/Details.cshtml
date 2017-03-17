@@ -1,0 +1,92 @@
+﻿@model Models.ConsultarVentaTabla
+
+@{
+    Layout = null;
+}
+
+<section class="content" style="padding:0px!important">
+
+
+    <div class="box box-primary" style="padding:15px!important;border-top-width:4px">
+
+        <div class="box-header with-border" style="padding-top:0px">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h3 class="box-title">Detalles venta - @Model.id_venta</h3>
+
+        </div>
+        <div class="form-horizontal">
+            <div class="box-body">
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>Paciente</dt>
+                        <dd>@Model.paciente</dd>
+                        <dt>#Documento</dt>
+                        <dd>@Model.id_paciente</dd>
+                        
+                        <dt>Contacto</dt>
+                        <dd>@Model.contacto</dd>
+                        <dt>Fecha</dt>
+                        <dd>@Model.fecha</dd>
+                        <dt>Estado</dt>
+                        @{string estado = Model.estado == 1 ? "Activo" : "Inactivo";
+
+                        <dd> @estado </dd>}
+                        
+                        
+                        
+
+                    </dl>
+                    
+                        <div class="box-body table-responsive ">
+                            <table class="table table-bordered table-hover col-md-12" id="tblVentas">
+                                <thead>
+                                    <tr>
+
+                                        <th style="width:20%">Concepto</th>
+                                        <th style="width:20%">Presentación</th>
+                                        <th style="width:20%">Contenido</th>
+                                        <th style="width:5%">Unds</th>
+                                        <th style="width:15%">P/U</th>
+                                        <th style="width:15%">Subtotal</th>                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var v in Model.detalle)
+                                    {
+                                        <tr>
+
+                                            <td>@v.producto</td>
+                                            <td>@v.presentacion</td>
+                                            <td>@v.contenido</td>
+                                            <td>@v.cantidad</td>
+                                            <td>@string.Format("{0:c}", (v.subtotal / v.cantidad))</td>                                           
+                                            <td>@string.Format("{0:c}", v.subtotal)</td>                                           
+                                        </tr>
+                                                }
+                                    <tr >
+                                        <td colspan="5" style="text-align:right">Total:</td>
+                                        <td>@string.Format("{0:c}", Model.valor)</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                   
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
