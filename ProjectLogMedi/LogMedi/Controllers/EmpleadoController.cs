@@ -13,11 +13,22 @@ namespace LogMedi.Controllers
     {
         private empleadoRepository empleados = new empleadoRepository();
         private LogmediContext db = new LogmediContext();
-        
+        private alertasListas alerta = new alertasListas();
 
         public ActionResult Index()
         {
-            return View(empleados.Listar());
+            if (Session["Alerta"] == null)
+            {
+                alerta.Empleado = empleados.Listar();
+                return View(alerta);
+            }
+            else
+            {
+                alerta.alerta =(int)Session["Alerta"];
+                Session["Alerta"] = null;
+                alerta.Empleado = empleados.Listar();
+                return View(alerta);
+            }
         }
 
        
@@ -49,15 +60,21 @@ namespace LogMedi.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    empleados.Agregar(empleado);                   
+                    empleados.Agregar(empleado);
+                    alerta.alerta = 1;
+                    Session["Alerta"] = alerta.alerta;                   
                     return RedirectToAction("Index");
                 }
 
-                return View(empleado);
+                alerta.alerta = 4;
+                Session["Alerta"] = alerta.alerta;
+                return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                alerta.alerta = 3;
+                Session["Alerta"] = alerta.alerta;
+                return RedirectToAction("Index");
             }
         }
 
@@ -88,14 +105,19 @@ namespace LogMedi.Controllers
                 if (ModelState.IsValid)
                 {
                     empleados.Actualizar(empleado);
-
+                    alerta.alerta = 2;
+                    Session["Alerta"] = alerta.alerta;
                     return RedirectToAction("Index");
                 }
-                return View(empleado);
+                alerta.alerta = 4;
+                Session["Alerta"] = alerta.alerta;
+                return RedirectToAction("Index");
             }
             catch
             {
-                return View(empleado);
+                alerta.alerta = 3;
+                Session["Alerta"] = alerta.alerta;
+                return RedirectToAction("Index");
             }
         }
     

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Models.movimiento>
+﻿@model Models.alertasListas
 @{
     ViewBag.Title = "Movimientos";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,6 +18,27 @@
 
 <!-- Main content -->
 <section class="content">
+    @switch (Model.alerta)
+    {
+        case 1:
+            <div class='alert alert-success alert-dismissible' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-check'></i>Registrado con éxito</h4></div>
+
+            break;
+        case 2:
+            <div class='alert alert-info alert-dismissible' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-check'></i>Modificado con éxito</h4></div>
+
+            break;
+        case 4:
+            <div class='alert alert-danger alert-dismissible' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-remove'></i>Ha ocurrido un error, intenta más tarde la acción</h4></div>
+            break;
+        case 3:
+            <div class='alert alert-warning alert-dismissible' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-undo'></i>El nombre de la presentación ya existe</h4></div>
+            break;
+        default:
+            <div class='alert alert-warning alert-dismissible Ocultar' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-remove'></i>El registro ya existe</h4></div>
+
+            break;
+    }
 
 
     <div class="box box-info" style="padding:15px;padding-top:5px">
@@ -44,7 +65,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var r in Model)
+                    @foreach (var r in Model.Compra)
                     {
                         <tr>
 
@@ -79,7 +100,9 @@
 
 </section>
 
-
+<script>
+        $("#Alerta2").delay(5000).fadeOut();
+</script>
 
 
 

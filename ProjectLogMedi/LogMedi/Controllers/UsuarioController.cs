@@ -11,10 +11,22 @@ namespace LogMedi.Controllers
     public class UsuarioController : Controller
     {
         usuarioRepository usuarios = new usuarioRepository();
-       
+        alertasListas alerta = new alertasListas();
+
         public ActionResult Index()
         {
-            return View(usuarios.Listar());
+            if (Session["Alerta"] == null)
+            {
+                alerta.Usuario = usuarios.Listar();
+                return View(alerta);
+            }
+            else
+            {
+              alerta =  (alertasListas)Session["Alerta"];
+                Session["Alerta"] = null;
+                alerta.Usuario = usuarios.Listar();
+                return View(alerta);
+            }
         }
 
         
@@ -54,14 +66,19 @@ namespace LogMedi.Controllers
                 if (ModelState.IsValid)
                 {
                     usuarios.Actualizar(usuario);
-
+                    alerta.alerta = 2;
+                    Session["Alerta"] = alerta;
                     return RedirectToAction("Index");
                 }
-                return View(usuario);
+                alerta.alerta = 4;
+                Session["Alerta"] = alerta;
+                return RedirectToAction("Index");
             }
             catch
             {
-                return View(usuario);
+                alerta.alerta = 3;
+                Session["Alerta"] = alerta;
+                return RedirectToAction("Index");
             }
         }
 

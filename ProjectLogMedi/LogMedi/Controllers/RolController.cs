@@ -14,11 +14,22 @@ namespace LogMedi.Controllers
     {
         private rolRepository roles = new rolRepository();
         private LogmediContext db = new LogmediContext();
-        
+        private alertasListas alerta = new alertasListas();
        
         public ActionResult Index()
         {
-            return View(roles.Listar());
+            if (Session["Alerta"] == null)
+            {
+                alerta.Rol = roles.Listar();
+                return View(alerta);
+            }
+            else
+            {
+                alerta.Rol = roles.Listar();
+                alerta.alerta = (int)Session["Alerta"];
+                Session["Alerta"] = null;
+                return View(alerta);
+            }
         }
 
         
@@ -61,14 +72,19 @@ namespace LogMedi.Controllers
                         addper= roles.getIdrol(addrol);
                         roles.EstablecerPermisos(addper,permiso);
                     }
+                    alerta.alerta = 1;
+                    Session["Alerta"] = alerta.alerta;
                     return RedirectToAction("Index");
                 }
-
-                return View(rol);
+                alerta.alerta = 4;
+                Session["Alerta"] = alerta.alerta;
+                return RedirectToAction("Index");
             }
             catch
             {
-                return View(rol);
+                alerta.alerta = 3;
+                Session["Alerta"] = alerta.alerta;
+                return RedirectToAction("Index");
             }
         }
 
@@ -104,14 +120,20 @@ namespace LogMedi.Controllers
                     
                    
                     roles.Actualizar(editar);
+                    alerta.alerta = 2;
+                    Session["Alerta"] = alerta.alerta;
                     return RedirectToAction("Index");
                 }
-                return View(editar);
+                alerta.alerta = 4;
+                Session["Alerta"] = alerta.alerta;
+                return RedirectToAction("Index");
             }
 
             catch
             {
-                return View(editar);
+                alerta.alerta = 3;
+                Session["Alerta"] = alerta.alerta;
+                return RedirectToAction("Index");
             }
         }
        

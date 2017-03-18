@@ -24,7 +24,7 @@ namespace LogMedi.Controllers
             }
             else
             {
-                alerta = (alertasListas)Session["Alerta"];
+                alerta.alerta = (int)Session["Alerta"];
                 alerta.medicamento = medicamentos.Listar();
                 Session["Alerta"] = null;
                 return View(alerta);
@@ -36,7 +36,18 @@ namespace LogMedi.Controllers
         {
             List<movimiento> compra = new List<movimiento>();
             compra = compras.ConsultarCompra();
-            return View(compra);
+            alerta.Compra = compra;
+            if (Session["Alerta"] == null)
+            {
+
+                return View(alerta);
+            }
+            else
+            {
+                alerta.alerta = (int)Session["Alerta"];
+                Session["Alerta"] = null;
+                return View(alerta);
+            }
         }
 
 
@@ -57,6 +68,9 @@ namespace LogMedi.Controllers
 
                 if (compras.Registrar(compra) == 1)
                 {
+                   
+                    alerta.alerta = 1;
+                    Session["Alerta"] = alerta.alerta;
                     return RedirectToAction("Movimiento");
                 }
                 else
@@ -136,16 +150,21 @@ namespace LogMedi.Controllers
                 {
 
                     compras.Actualizar(movimiento);
-
+                    alerta.alerta = 2;
+                    Session["Alerta"] = alerta.alerta;
                     return RedirectToAction("Movimiento");
 
 
                 }
-                return View(movimiento);
+                alerta.alerta = 4;
+                Session["Alerta"] = alerta.alerta;
+                return RedirectToAction("Movimiento");
             }
             catch
             {
-                return View(movimiento);
+                alerta.alerta = 3;
+                Session["Alerta"] = alerta.alerta;
+                return RedirectToAction("Movimiento");
             }
         }
 
@@ -175,19 +194,19 @@ namespace LogMedi.Controllers
                 {
                     medicamentos.Agregar(medicamento);
                     alerta.alerta = 1;
-                    Session["Alerta"] = alerta;
+                    Session["Alerta"] = alerta.alerta;
                     return RedirectToAction("Index");
                 }
 
                 alerta.alerta = 4;
-                Session["Alerta"] = alerta;
+                Session["Alerta"] = alerta.alerta;
                 return RedirectToAction("Index");
 
             }
             catch
             {
                 alerta.alerta = 3;
-                Session["Alerta"] = alerta;
+                Session["Alerta"] = alerta.alerta;
                 return RedirectToAction("Index");
             }
         }
@@ -213,17 +232,17 @@ namespace LogMedi.Controllers
                 {
                     medicamentos.ActualizarMedicamento(medicamento);
                     alerta.alerta = 2;
-                    Session["Alerta"] = alerta;
+                    Session["Alerta"] = alerta.alerta;
                     return RedirectToAction("Index");
                 }
                 alerta.alerta = 4;
-                Session["Alerta"] = alerta;
+                Session["Alerta"] = alerta.alerta;
                 return View(medicamento);
             }
             catch
             {
                 alerta.alerta = 3;
-                Session["Alerta"] = alerta;
+                Session["Alerta"] = alerta.alerta;
                 return View(medicamento);
             }
         }
