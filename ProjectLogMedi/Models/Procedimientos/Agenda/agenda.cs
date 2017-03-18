@@ -13,7 +13,7 @@
         {
             ConsultaUsuario = new List<tablaAgendaUsuario>();
             horario = new List<Models.horario>();
-            ddlUsuario = new List<ddlUsuario>();
+            Usuario = new Models.ddlUsuario();
         }
 
 
@@ -27,7 +27,7 @@
 
         public int id_horario { get; set; }
 
-        public int alerta { get; set;}
+        public int alerta { get; set; }
 
         public List<ddlUsuario> ddlUsuario { get; set; }
 

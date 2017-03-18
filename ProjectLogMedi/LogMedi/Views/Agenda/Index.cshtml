@@ -25,25 +25,25 @@
 
 <!-- Main content -->
 <section class="content">
-   @switch (Model.alerta)
-   {
-       case 1:
-        <div class='alert alert-success alert-dismissible' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-check'></i>Registrado con éxito</h4></div>
-           break;
-       case 2:
-        <div class='alert alert-info alert-dismissible' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-check'></i>Modificado con éxito</h4></div>
-           break;
-       case 4:
-        <div class='alert alert-danger alert-dismissible' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-remove'></i>Ha ocurrido un error, intenta más tarde la acción</h4></div>
-           break;
-       case 3:
-        <div class='alert alert-warning alert-dismissible' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-undo'></i>El documento del paciente ya no existe</h4></div>
-           break;
-       default:
-        <div class='alert alert-warning alert-dismissible Ocultar' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-remove'></i>El registro ya existe</h4></div>
+    @switch (Model.alerta)
+    {
+        case 1:
+            <div class='alert alert-success alert-dismissible' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-check'></i>Registrado con éxito</h4></div>
+            break;
+        case 2:
+            <div class='alert alert-info alert-dismissible' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-check'></i>Modificado con éxito</h4></div>
+            break;
+        case 4:
+            <div class='alert alert-danger alert-dismissible' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-remove'></i>Ha ocurrido un error, intenta más tarde la acción</h4></div>
+            break;
+        case 3:
+            <div class='alert alert-warning alert-dismissible' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-undo'></i>El documento del paciente no existe</h4></div>
+            break;
+        default:
+            <div class='alert alert-warning alert-dismissible Ocultar' id='Alerta2' style='right:20px;'> <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><h4><i class='icon fa fa-remove'></i>El registro ya existe</h4></div>
 
-           break;
-   }
+            break;
+    }
    @using (Html.BeginForm())
    {
         @Html.AntiForgeryToken()
@@ -186,41 +186,8 @@
     <!-- /.box -->
 </section>
 
-<script type="text/javascript">
-    $(document).ready(function () {
 
-        $('#CreateAgenda')
-            .bootstrapValidator({
-                message: 'Este valor no es válido',
-
-                fields: {
-
-                    id_paciente: {
-                        message: 'Campo no válido',
-                        validators: {
-                            stringLength: {
-                                max: 20,
-                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
-                            },
-                            noEmpty: {
-                                message: 'Campo requerido'
-                        },
-                            regexp: {
-                                regexp: /^[a-zA-Z0-9-\s]+$/i,
-                                message: 'No se admiten carácteres especiales'
-                            }
-                        }
-                    }
-
-                }
-            })
-           .on('success.field.fv', function (e, data) {
-
-           });
-    });
-
-</script>
-
+<script>   $("#Alerta2").delay(5000).fadeOut(); </script>
 
 
 @section scripts{
@@ -236,7 +203,6 @@
             });
         });
 
-        $("#Alerta2").delay(5000).fadeOut();
 </script>
 
 }

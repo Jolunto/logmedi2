@@ -1,10 +1,6 @@
 ﻿namespace Models
 {
-    using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
 
     public partial class alertasListas
@@ -15,7 +11,10 @@
         public List<medicamento> DirectorioMedicamento { get; set; }
         public List<medicamentoTable> medicamento { get; set; }
         public List<ConsultarVentaTabla> venta { get; set; }
-        public List<agenda> agenda { get; set; }
+        public List<movimiento> Compra { get; set; }
+        public List<usuario> Usuario { get; set; }
+        public List<rol> Rol { get; set; }
+        public List<empleado> Empleado { get; set; }
 
         public alertasListas()
         {
@@ -23,7 +22,10 @@
             DirectorioMedicamento = new List<medicamento>();
             medicamento = new List<medicamentoTable>();
             venta = new List<ConsultarVentaTabla>();
-            agenda = new List<Models.agenda>();
+            Compra = new List<movimiento>();
+            Usuario = new List<usuario>();
+            Rol = new List<rol>();
+            Empleado = new List<empleado>();
         }
 
         

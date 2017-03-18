@@ -11,14 +11,27 @@ namespace LogMedi.Controllers
 {
     public class AgendaController : Controller
     {
+        agenda agenda = new agenda();
         agendaRepository agendaR = new agendaRepository();
 
         // GET: Agenda
         public ActionResult Index()
         {
-            var agenda = new agenda();
-            agenda= (agenda)Session["agenda"];
-            if (agenda == null) { return View(agendaR.index()); } else { agenda.ConsultaUsuario= agendaR.ConsultaUsuario(agenda); return View(agenda); }
+           
+            agenda = (agenda)Session["agenda"];
+            if (Session["Alerta"] == null)
+            {
+                if (agenda == null) { return View(agendaR.index()); } else { agenda.ConsultaUsuario = agendaR.ConsultaUsuario(agenda); return View(agenda); }
+            }
+            else
+            {
+                agenda.alerta = int.Parse(Session["Alerta"].ToString());
+                Session["Alerta"] = null;
+                if (agenda == null) { return View(agendaR.index()); } else { agenda.ConsultaUsuario = agendaR.ConsultaUsuario(agenda); return View(agenda); }
+            }
+           
+      
+            
             
         }
 
@@ -85,14 +98,19 @@ namespace LogMedi.Controllers
                 if (ModelState.IsValid)
                 {
                     agendaR.Agregar(agenda);
+                    agenda.alerta = 1;
+                    Session["Alerta"] = agenda.alerta;
                     return RedirectToAction("Index");
                 }
-
-                return View(agenda);
+                agenda.alerta = 4;
+                Session["Alerta"] = agenda.alerta;
+                return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                agenda.alerta = 3;
+                Session["Alerta"] = agenda.alerta;
+                return RedirectToAction("Index");
             }
         }
 
@@ -110,20 +128,27 @@ namespace LogMedi.Controllers
         [HttpPost]
         public ActionResult Edit(int ddlEstado, DetallesCita cita)
         {
+            agenda agenda = new agenda();
             cita.id_estado_cita = ddlEstado;
             try
             {
                 if (ModelState.IsValid)
                 {
                     agendaR.Actualizar(cita);
+                    agenda.alerta = 2;
+                    Session["Alerta"] = agenda.alerta;
 
                     return RedirectToAction("Index");
                 }
-                return View(cita);
+                agenda.alerta = 4;
+                Session["Alerta"] = agenda.alerta;
+                return RedirectToAction("Index");
             }
             catch
             {
-                return View(cita);
+                agenda.alerta = 3;
+                Session["Alerta"] = agenda.alerta;
+                return RedirectToAction("Index");
             }
         }
 
