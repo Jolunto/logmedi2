@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLogic;
+using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,18 +15,24 @@ namespace LogMedi.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public bool Cambiar(string OldPassword, string NewPassword, string ConfirmPassword)
         {
-            ViewBag.Message = "Your application description page.";
+            usuarioRepository cambiar = new usuarioRepository();
+            Array comparar = cambiar.CompararContrasena(19);
 
-            return View();
-        }
+            if (string.Compare(OldPassword,comparar.GetValue(0).ToString()) == 0)
+            {
+                bool bandera = false;
+                bandera = cambiar.CambiarContrasena(19,NewPassword);
+                return bandera;
+            }
+            else
+            {
+                return false;
+            }
+ 
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
     }
 }

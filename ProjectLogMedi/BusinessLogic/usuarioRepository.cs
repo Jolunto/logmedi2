@@ -99,6 +99,37 @@ namespace BusinessLogic
                 throw;
             }
         }
+        
+        public bool CambiarContrasena(int id,string NewPassword)
+        {
+            var usuario = new usuario();
+            try
+            {
 
+                int bandera = db.Database.ExecuteSqlCommand("Call spCambiar(" + id + "," + NewPassword + ")");
+                if(bandera > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+        public Array CompararContrasena(int id)
+        {
+            var traer =
+     (from db in db.usuario
+      where db.id_usuario == id
+      select db.contraseña).ToArray();
+
+            return traer;
+        }
     }
 }
