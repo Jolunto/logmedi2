@@ -98,7 +98,7 @@
                 </div>
                 <div class="box-footer">
                     <div>
-                        <input type="submit" value="Editar" style="float:right;width:100px" class="btn btn-primary" />
+                        <input type="submit" id="EditarMedicamento" value="Editar" style="float:right;width:100px" class="btn btn-primary" />
                     </div>
                 </div>
 
@@ -155,6 +155,13 @@
            .on('success.field.fv', function (e, data) {
 
            });
+
+        $("#ddlEstado").on('focus', function () {
+            // Store the current value on focus and on change
+            previous = this.value;
+        }).change(function () {
+            Confirmar();
+        });
     });
 
 </script>

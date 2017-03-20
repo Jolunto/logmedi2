@@ -37,7 +37,21 @@
     </style>
 
 
+    <script>
+        function Confirmar() {
+            $("#ModalConfirm").modal("show");
 
+        }
+        function Dejar() {
+            var actual = $("#ddlEstado").val();
+            if (actual == 1) {
+                $("#ddlEstado").val(2);
+            }
+            else {
+                $("#ddlEstado").val(1);
+            }
+        }
+    </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
@@ -504,11 +518,27 @@
                     }
                 });
         });
+      
     </script>
-
-
-
-
+    <div class="modal modal-primary"  id="ModalConfirm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title" id="ModalTittle">¿Estás seguro de cambiar el estado?</h4>
+                </div>
+                <div class="modal-footer"> 
+                    <button type="button" class="btn btn-success  pull-left" data-dismiss="modal">Sí</button>
+                    <button type="button" onclick="Dejar();" data-dismiss="modal" class="btn btn-danger pull-left">No</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
     @RenderSection("scripts", required: false)
 
 
