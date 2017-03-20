@@ -441,7 +441,7 @@
                             <!--/Segundo bloque tabs interno-->
                             <div class="col-md-6 col-xs-0" style="margin-bottom:0px;margin-top:0px"></div>
                             <div class="col-md-3 col-xs-12 " style="margin-bottom:0px;margin-top:0px">
-                                <button class="btn btn-danger  " type="submit" style="width:100%" value="cerrar" name="action"><b>Cancelar</b></button>
+                                <button class="btn btn-danger  " type="submit" style="width:100%" value="cerrar" name="action" id="btnCancelarSeguimiento"><b>Cancelar</b></button>
                             </div>
 
                             <div class="col-md-3 col-xs-12 pull-right " style="margin-bottom:0px;margin-top:0px">
@@ -514,7 +514,21 @@
                                                 }
     </div>
 
-
+    <div class="modal modal-primary" id="ModalCancelarSeguimiento" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="ModalTittle">¿Estás seguro que desea cancelar el seguimiento clínico?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  onclick="IrIndex();" class="btn btn-success  pull-right col-lg-offset-1" style="width: 80px;" data-dismiss="modal">Sí</button>
+                    <button type="button"  data-dismiss="modal" style="width: 80px" class="btn btn-danger right">No</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 
 
 </section>
@@ -637,7 +651,7 @@
                                 message: 'No puedes sobrepasar los 15 dígitos en este campo'
                             },
                             regexp: {
-                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                regexp: /^[0-9s]+$/i,
                                 message: 'La dosis no es válida'
                             }
                         }
@@ -657,7 +671,7 @@
                                 message: 'No puedes sobrepasar los 20 dígitos en este campo'
                             },
                             regexp: {
-                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                regexp: /^[0-9\s]+$/i,
                                 message: 'EL campo no es válido'
                             }
                         }
@@ -755,7 +769,9 @@
     <link href="~/Content/plugin/datepicker/datepicker3.css" rel="stylesheet" />
     <script src="~/Content/plugin/datepicker/bootstrap-datepicker.js"></script>
     <script type="text/javascript">
-
+        function ConSalir(){
+                $("#ModalCancelarSeguimiento").modal("show", function () { keyboard: false });
+        }
 
 
 
@@ -823,6 +839,18 @@
         $("#FechaVigencia").change(function () {
             $('#CreateSeguimiento').bootstrapValidator('revalidateField', 'formula.vigencia');
         });
+
+        $("#dosis").prop('type', 'number');
+        $("#frecuencia").prop('type', 'number');
+
+        $('#btnCancelarSeguimiento').click(function(e) {
+            e.preventDefault();
+            ConSalir();
+
+        });
+        function IrIndex(){
+            window.location.replace("/Seguimiento");
+        }
     </script>
     <script src="~/Scripts/Seguimiento/Create.js"></script>
 
