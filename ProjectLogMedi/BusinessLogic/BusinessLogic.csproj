@@ -63,6 +63,7 @@
     <Compile Include="medicamentoRepository.cs" />
     <Compile Include="pacienteRepository.cs" />
     <Compile Include="rolRepository.cs" />
+    <Compile Include="seguimientoRepository.cs" />
     <Compile Include="servicioRepository.cs" />
     <Compile Include="usuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

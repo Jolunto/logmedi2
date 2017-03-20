@@ -26,16 +26,16 @@ namespace Models
         [StringLength(150)]
         public string sintomatologia { get; set; }
 
-        public int peso { get; set; }
+        public string peso { get; set; }
 
-        public int? presion { get; set; }
+        public string presion { get; set; }
 
         public int id_cita { get; set; }
 
         public int id_formula { get; set; }
 
-        [Column(TypeName = "bit")]
-        public bool? estado_seguimiento { get; set; }
+       
+        public int estado_seguimiento { get; set; }
 
         public virtual cita cita { get; set; }
 

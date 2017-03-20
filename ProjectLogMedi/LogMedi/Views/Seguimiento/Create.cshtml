@@ -1,0 +1,601 @@
+﻿@model Models.Seguimiento
+@{
+    ViewBag.Title = "Seguimiento Clínico";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    .nav-tabs-custom {
+        margin-bottom: 10px !important;
+    }
+
+    .divbottom {
+        margin-bottom: 15px;
+    }
+
+    TextArea {
+        width: 100%;
+        height: 90px;
+        resize: none;
+    }
+
+    #formula_observacion {
+        width: 100%;
+        height: 60px !important;
+        resize: none;
+    }
+
+    .tabs-left, .tabs-right {
+        border-bottom: none;
+        padding-top: 2px;
+    }
+
+    .tabs-left {
+        border-right: 1px solid #ddd;
+    }
+
+    .tabs-right {
+        border-left: 1px solid #ddd;
+    }
+
+        .tabs-left > li, .tabs-right > li {
+            float: none;
+            margin-bottom: 2px;
+        }
+
+    .tabs-left > li {
+        margin-right: -1px;
+    }
+
+    .tabs-right > li {
+        margin-left: -1px;
+    }
+
+    .tabs-left > li.active > a,
+    .tabs-left > li.active > a:hover,
+    .tabs-left > li.active > a:focus {
+        border-bottom-color: #ddd;
+        border-right-color: transparent;
+    }
+
+    .tabs-right > li.active > a,
+    .tabs-right > li.active > a:hover,
+    .tabs-right > li.active > a:focus {
+        background-color: #F1F1F1;
+        border-right: 2px solid #3c8dbc;
+        border-left-color: transparent;
+    }
+
+    .tabs-left > li > a {
+        border-radius: 4px 0 0 4px;
+        margin-right: 0;
+        display: block;
+    }
+
+    .tabs-right > li > a {
+        border-radius: 0 4px 4px 0;
+        margin-right: 0;
+    }
+</style>
+
+
+<section class="content">
+
+    <div class="col-md-3">
+
+        <div class="box box-primary">
+            <div class="box-body box-profile" style="min-height:365px">
+                @switch (Model.paciente.id_genero)
+                {
+                    case 1:
+                        <img class="profile-user-img img-responsive img-circle" src="~/Content/images/PacienteM.png" alt="User profile picture">
+                        break;
+                    case 2:
+                        <img class="profile-user-img img-responsive img-circle" src="~/Content/images/PacienteF.png" alt="User profile picture">
+                        break;
+                    case 3:
+                        <img class="profile-user-img img-responsive img-circle" src="~/Content/images/PacienteO.png" alt="User profile picture">
+                        break;
+                    default:
+                        <img class="profile-user-img img-responsive img-circle" src="~/Content/images/PacienteOt.png" alt="User profile picture">
+                        break;
+                }
+
+                <h3 class="profile-username text-center">@Model.paciente.primer_nombre @Model.paciente.segundo_nombre</h3>
+
+                <p class="text-muted text-center">@Model.paciente.primer_apellido @Model.paciente.segundo_apellido</p>
+
+                <ul class="list-group list-group-unbordered">
+                    <li class="list-group-item">
+                        <b>Documento</b> <a class="pull-right">@Model.paciente.id_paciente</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>RH</b> <a class="pull-right">@Model.paciente.tipo_sangre</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Fec. Nac.</b> <a class="pull-right">@Model.paciente.fecha_nacimiento</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Género</b> <a class="pull-right">
+                            @foreach (var g in Model.paciente.generos)
+                            {@g.nombre}
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Dirección</b> <a class="pull-right">@Model.paciente.direccion</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Contacto</b> <a class="pull-right">@Model.paciente.telefono -- @Model.paciente.celular</a>
+                    </li>
+
+
+
+
+                </ul>
+                <a class="btnDetalles btn btn-default btn-block" href="#myModal" data-toggle="modal"><i class="fa fa-eye" aria-hidden="true"></i>  Antecedentes</a>
+
+
+                <a href="#" class="btn btn-primary btn-block"><b><i class="fa fa-pencil" aria-hidden="true"></i>  Editar</b></a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="col-md-9">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(x => x.id_cita, new { @id = "id_cita" })
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#hoy" data-toggle="tab" aria-expanded="false">Hoy</a></li>
+                    <li class=""><a href="#historia" data-toggle="tab" aria-expanded="false">Seguimientos anteriores</a></li>
+
+                </ul>
+                <div class="tab-content">
+                    <div class="active tab-pane" id="hoy">
+
+
+                        <div class="user-block">
+
+                            <br />
+                            <!--Segundo bloque tabs interno-->
+                            <div class="nav-tabs-custom" style="min-height:402px">
+                                <div class="col-sm-12" style="padding-right: 0px">
+
+                                    <div class="col-sm-9 ">
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div class="tab-pane" id="Control">
+
+                                                <form class="form-horizontal">
+
+                                                    <div class="form-group">
+                                                        <div class="col-md-6 col-xs-12" style="padding:0px;margin:0px;">
+                                                            <label for="peso" class="col-md-3 col-sm-12 control-label">Peso</label>
+
+                                                            <div class="col-sm-9 divbottom">
+                                                                @Html.EditorFor(model => model.control.peso, new { htmlAttributes = new { @class = "form-control", @id = "peso", @placeholder = "Ej: 35 k" } })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="col-md-6 col-xs-12" style="padding:0px;margin:0px;">
+                                                            <label for="presion" class="col-md-3 col-sm-12 control-label">Presión</label>
+
+                                                            <div class="col-sm-9 divbottom">
+                                                                @Html.EditorFor(model => model.control.presion, new { htmlAttributes = new { @class = "form-control", @id = "presion", @placeholder = "Ej: 120/80" } })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 " style="padding:0px;margin:0px;">
+                                                        <br />
+                                                        <div class="form-group">
+                                                            <label for="consulta" class="col-md-12 col-sm-12 control-label">Motivo de Cosulta</label>
+
+                                                            <div class="col-sm-12 divbottom">
+                                                                @Html.TextAreaFor(model => model.control.motivo_consulta, new { htmlAttributes = new { @class = "form-control", @id = "consulta", @placeholder = "Ej: 120/80" } })
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="sintomas" class="col-md-12 col-sm-12 control-label">Sintomatología</label>
+
+                                                            <div class="col-sm-12 " style="margin-bottom:8px">
+                                                                @Html.TextAreaFor(model => model.control.sintomatologia, new { htmlAttributes = new { @class = "form-control", @id = "sintomas", @placeholder = "Ej: 120/80" } })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <!-- /.box-body -->
+                                                    <!-- /.box-footer -->
+                                                </form>
+
+                                            </div>
+                                            <div class="tab-pane" id="Formula" style="padding:15px">
+                                                <div class="form-horizontal">
+
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            @Html.HiddenFor(x => x.id_medicamento, new { @id = "id_medicamento" })
+                                                            @Html.TextBoxFor(x => x.nombre, new { @class = "form-control Buscar", placeholder = "Buscar Medicamento" })
+                                                            @Html.ValidationMessage("producto_agregar", null, new { @class = "label label-danger" })
+
+
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            @Html.HiddenFor(x => x.existencia)
+                                                            @Html.TextBoxFor(x => x.existencia, new { @class = "form-control", placeholder = "Stock", @id = "existencias" })
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            @Html.TextBoxFor(x => x.cantidad, new { @class = "form-control", placeholder = "Cantidad" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            @Html.TextBoxFor(x => x.dosis, new { @class = "form-control Buscar", placeholder = "Dosis" })
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            @Html.TextBoxFor(x => x.frecuencia, new { @class = "form-control", placeholder = "Frecuencia", @id = "frecuencia" })
+                                                        </div>
+
+
+                                                        <div class="col-md-3">
+                                                            <button class="btn btn-primary" type="submit" style="width:100%" value="agregar_formula" name="action">
+                                                                <i class="glyphicon glyphicon-plus"></i>
+                                                            </button>
+
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                    <div id="CargarTabla" class=" table-responsive" style="padding:0px;margin:0px; margin-bottom:5px;min-height:175px;max-height:175px">
+                                                        <table class="table table-bordered table-hover col-md-12" id="tblDetalles">
+                                                            <thead>
+                                                                <tr>
+
+                                                                    <th style="width:40%">Medicamento</th>
+                                                                    <th style="width:10%">Cantidad</th>
+                                                                    <th style="width:20%">Dosis</th>
+                                                                    <th style="width:20%">Frecuencia</th>
+                                                                    <th style="width:10%"></th>
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+
+
+                                                                @foreach (var p in Model.posologia)
+                                                                {
+
+                                                                    <tr>
+                                                                        <td>@p.nombre</td>
+                                                                        <td>@p.cantidad</td>
+                                                                        <td>@p.dosis</td>
+                                                                        <td>@p.frecuencia</td>
+                                                                        <td class="text-right">
+                                                                            <button class="btn btn-danger btn-xs btn-block btn-retira" type="submit" value="@p.id_medicamento" style="width:80%;margin-left:10%;margin-right:10%" name="action">
+                                                                                <i class="glyphicon glyphicon-remove"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                }
+
+                                                            </tbody>
+
+                                                        </table>
+
+
+                                                    </div>
+                                                    <hr />
+                                                    <div class="col-md-3">
+                                                        @Html.TextBoxFor(x => x.formula.vigencia, new { @class = "form-control", placeholder = "Vigencia", @id = "FechaVigencia" })
+
+                                                    </div>
+                                                    <div class="col-md-9" style="padding:0px!important;margin:0px!important;">
+                                                        @Html.TextAreaFor(model => model.formula.observacion, new { htmlAttributes = new { @class = "form-control", placeholder = "Buscar Medicamento", id = "observacionArea2" } })
+                                                    </div>
+
+
+
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="tab-pane" id="Tratamiento" style="padding:15px">
+
+                                                <div class="form-horizontal">
+
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label" style="text-align:left">Enfermedad</label>
+                                                        <div class="col-md-9">
+                                                            <select name="ddlEnfermedad" class="form-control" id="ddlEnfermedad" style="padding-right:0px">
+                                                                @if (Model.id_enfermedad == 0)
+                                                                {
+                                                                    <option value="0">Seleccione</option>
+                                                                }
+
+                                                                @{
+                                                                    foreach (var e in Model.enfermedades)
+                                                                    {
+                                                                        <option value=@e.id_enfermedad>@e.nombre</option>
+                                                                    }
+                                                                }
+
+                                                            </select>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label" style="text-align:left">Observación</label>
+
+                                                        <div class="col-md-9">
+                                                            @Html.TextAreaFor(model => model.observacion_enfermedad, new { htmlAttributes = new { @class = "form-control", placeholder = "Buscar Medicamento", id = "observacionArea" } })
+
+                                                        </div>
+
+
+
+
+                                                    </div>
+                                                    <br />
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label" style="text-align:left">Tratamiento</label>
+                                                        <div class="col-md-9">
+                                                            <select name="ddlTratamiento" class="form-control" id="ddlTratamiento">
+                                                                @if (Model.id_tratamiento == 0)
+                                                                {
+                                                                    <option value="0">Seleccione</option>
+                                                                }
+                                                                @{
+                                                                    foreach (var e in Model.tratamientos)
+                                                                    {
+                                                                        <option value=@e.id_tratamiento>@e.nombre</option>
+                                                                    }
+                                                                }
+
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label" style="text-align:left">Observación</label>
+
+                                                        <div class="col-md-9">
+                                                            @Html.TextAreaFor(model => model.observacion_tratamiento, new { htmlAttributes = new { @class = "form-control", placeholder = "Buscar Medicamento", id = "observacionArea" } })
+
+
+                                                        </div>
+
+
+
+
+
+                                                    </div>
+
+
+
+
+
+
+
+
+
+
+                                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 col-xs-12" style="padding-right: 0px">
+                                        <!-- required for floating -->
+                                        <!-- Nav tabs -->
+                                        <img class="img-circle img-bordered-sm" src="~/Content/images/Paciente.png" alt="user image">
+                                        <span class="username">
+                                            <a href="#">seguimiento</a>
+
+                                        </span>
+                                        <span class="description">@DateTime.Now</span>
+                                        <hr style="margin-bottom:0px" />
+                                        <ul class="nav nav-tabs tabs-right">
+                                            <li id="pestañaControl"><a href="#Control" data-toggle="tab"><i class="fa fa-id-badge" aria-hidden="true"></i> Control</a></li>
+                                            <li id="pestañaFormula"><a href="#Formula" data-toggle="tab"><i class="fa fa-stethoscope" aria-hidden="true"></i> Fórmula</a></li>
+                                            <li id="pestañaTratamiento"><a href="#Tratamiento" data-toggle="tab"><i class="fa fa-wheelchair-alt" aria-hidden="true"></i> Tratamiento</a></li>
+
+
+                                        </ul>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--/Segundo bloque tabs interno-->
+                            <div class="col-md-6 col-xs-0" style="margin-bottom:0px;margin-top:0px"></div>
+                            <div class="col-md-3 col-xs-12 " style="margin-bottom:0px;margin-top:0px">
+                                <button class="btn btn-danger  " type="submit" style="width:100%" value="cerrar" name="action"><b>Cancelar</b></button>
+                            </div>
+                            <div class="col-md-3 col-xs-12 pull-right " style="margin-bottom:0px;margin-top:0px">
+                                <button class="btn btn-primary  " type="submit" style="width:100%" value="guardar" name="action"><b>Guardar</b></button>
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="tab-pane" id="historia" style="min-height:438px;max-height:438px">
+                        <ul class="timeline timeline-inverse">
+                            @if (Model.seguimientos.Count > 0)
+                            {
+                                foreach (var s in Model.seguimientos)
+                                {
+                                    <li>
+                                        <i class="fa fa-heartbeat bg-aqua"></i>
+
+                                        <div class="timeline-item">
+                                            <span class="time"><i class="fa fa-clock-o"></i> @s.dias Días atrás</span>
+
+                                            <h3 class="timeline-header"><a>Fecha de atención </a>  @s.fecha</h3>
+
+                                            <div class="timeline-body">
+                                                Atendida por : @s.empleado
+                                                <br />
+                                                Motivo consulta: @s.consulta
+                                            </div>
+                                            <div class="timeline-footer">
+                                                <a class="btn btn-success btn-flat btn-xs">Detalles</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <i class="fa fa-spinner bg-aqua"></i>
+
+                                                        <div class="timeline-item">
+                                                            <span class="time"><i class="fa fa-clock-o"></i>@DateTime.Now</span>
+
+                                                            <h3 class="timeline-header no-border">
+                                                                <a href="#">No registros</a> No se ha guardado un seguimiento del paciente aún
+                                                            </h3>
+                                                        </div>
+                                                    </li>
+                                                }
+
+
+                            <li>
+                                <i class="fa fa-clock-o bg-gray"></i>
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+                                                }
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+@section scripts{
+
+    <link href="~/Content/plugin/datatables/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/Content/plugin/datatables/jquery.dataTables.min.js"></script>
+    <link href="~/Content/plugin/datepicker/datepicker3.css" rel="stylesheet" />
+    <script src="~/Content/plugin/datepicker/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+
+
+
+
+        if (@Model.pestaña == 2) {
+            $('#pestañaTratamiento').addClass('active');
+            $('#Tratamiento').addClass('active');
+
+        }else if (@Model.pestaña == 3) {
+            $('#pestañaFormula').addClass('active');
+            $('#Formula').addClass('active');
+        }else {
+            $('#pestañaControl').addClass('active');
+            $('#Control').addClass('active');
+        }
+
+        $('#@Model.pestaña').addClass('active');
+        $("#existencias").attr('disabled', 'disabled');
+        LimpiarAgregarProducto();
+        $(document).ready(function () {
+
+            /* Autocomplete de producto, jquery UI */
+            $(".Buscar").autocomplete({
+                dataType: 'JSON',
+                source: function (request, response) {
+                    jQuery.ajax({
+                        url: '/Seguimiento/BuscarMedicamento',
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            nombre: request.term
+                        },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    id: item.id_medicamento,
+                                    value: item.nombre,
+                                    extistencia: item.existencia
+                                }
+                            }))
+                        }
+                    })
+                },
+                select: function (e, ui) {
+                    $("#id_medicamento").val(ui.item.id);
+                    $("#existencia").val(ui.item.extistencia);
+                    $("#cantidad").focus();
+                    $("#existencias").val(ui.item.extistencia);
+                }
+            })
+        })
+        function LimpiarAgregarProducto() {
+            $("#id_medicamento").val("");
+            $("#existencias").val("");
+            $("#frecuencia").val("");
+            $("#cantidad").val(1);
+            $(".Buscar").val("")
+        }
+
+        $('#FechaVigencia').datepicker({
+            autoclose: true,
+            format: 'yyyy/mm/dd',
+        });
+
+        $('#formula_observacion').attr("placeholder", "Observacion");
+
+    </script>
+    <script src="~/Scripts/Seguimiento/Create.js"></script>
+
+
+
+}

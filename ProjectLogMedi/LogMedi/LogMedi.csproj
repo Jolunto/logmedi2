@@ -144,6 +144,7 @@
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\PresentacionController.cs" />
     <Compile Include="Controllers\RolController.cs" />
+    <Compile Include="Controllers\SeguimientoController.cs" />
     <Compile Include="Controllers\ServicioController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\VentaController.cs" />
@@ -1910,6 +1911,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Rol\Rol.js" />
+    <Content Include="Scripts\Seguimiento\Create.js" />
+    <Content Include="Scripts\Seguimiento\Index.js" />
     <Content Include="Scripts\Servicio\Servicio.js" />
     <Content Include="Scripts\Usuario\Usuario.js" />
     <Content Include="Scripts\Venta\Consultar.js" />
@@ -1980,6 +1983,10 @@
     <Content Include="Views\Venta\Details.cshtml" />
     <Content Include="Views\Venta\Edit.cshtml" />
     <Content Include="Views\Agenda\AgendaPaciente.cshtml" />
+    <Content Include="Views\Seguimiento\Create.cshtml" />
+    <Content Include="Views\Seguimiento\CreateEnfermedad.cshtml" />
+    <Content Include="Views\Seguimiento\Index.cshtml" />
+    <Content Include="Views\Seguimiento\Prioritaria.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

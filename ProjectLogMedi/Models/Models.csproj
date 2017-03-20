@@ -87,6 +87,11 @@
     <Compile Include="posologia.cs" />
     <Compile Include="presentacion.cs" />
     <Compile Include="Procedimientos\pacienteTable.cs" />
+    <Compile Include="Procedimientos\Seguimiento\ActualizarPaciente.cs" />
+    <Compile Include="Procedimientos\Seguimiento\formulaSeguimiento.cs" />
+    <Compile Include="Procedimientos\Seguimiento\IndexSeguimiento.cs" />
+    <Compile Include="Procedimientos\Seguimiento\Seguimiento.cs" />
+    <Compile Include="Procedimientos\Seguimiento\seguimientos.cs" />
     <Compile Include="Procedimientos\Venta\venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rol.cs" />

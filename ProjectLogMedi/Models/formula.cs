@@ -18,9 +18,8 @@ namespace Models
 
         [Key]
         public int id_formula { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime vigencia { get; set; }
+                
+        public String vigencia { get; set; }
 
         [StringLength(100)]
         public string observacion { get; set; }
