@@ -83,7 +83,14 @@
 
 
     </div>
-
+    <script>
+        $("#ddlEstado").on('focus', function () {
+            // Store the current value on focus and on change
+            previous = this.value;
+        }).change(function () {
+            Confirmar(previous);
+        });
+    </script>
 
 
 </section>

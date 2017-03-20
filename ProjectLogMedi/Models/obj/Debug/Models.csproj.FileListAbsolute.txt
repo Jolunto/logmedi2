@@ -57,3 +57,15 @@ D:\Git2\ProjectLogMedi\Models\bin\Debug\EntityFramework.SqlServer.xml
 D:\Git2\ProjectLogMedi\Models\obj\Debug\Models.dll
 D:\Git2\ProjectLogMedi\Models\obj\Debug\Models.pdb
 D:\Git2\ProjectLogMedi\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+E:\Git2\ProjectLogMedi\Models\bin\Debug\Models.dll.config
+E:\Git2\ProjectLogMedi\Models\bin\Debug\Models.dll
+E:\Git2\ProjectLogMedi\Models\bin\Debug\Models.pdb
+E:\Git2\ProjectLogMedi\Models\bin\Debug\EntityFramework.dll
+E:\Git2\ProjectLogMedi\Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\Git2\ProjectLogMedi\Models\bin\Debug\MySql.Data.dll
+E:\Git2\ProjectLogMedi\Models\bin\Debug\MySql.Data.Entity.EF6.dll
+E:\Git2\ProjectLogMedi\Models\bin\Debug\EntityFramework.xml
+E:\Git2\ProjectLogMedi\Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\Git2\ProjectLogMedi\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+E:\Git2\ProjectLogMedi\Models\obj\Debug\Models.dll
+E:\Git2\ProjectLogMedi\Models\obj\Debug\Models.pdb

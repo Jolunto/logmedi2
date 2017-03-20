@@ -160,7 +160,7 @@
             // Store the current value on focus and on change
             previous = this.value;
         }).change(function () {
-            Confirmar();
+            Confirmar(previous);
         });
     });
 

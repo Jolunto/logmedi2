@@ -68,3 +68,17 @@ D:\Git2\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
 D:\Git2\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
 D:\Git2\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.dll
 D:\Git2\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.pdb
+E:\Git2\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.dll.config
+E:\Git2\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.dll
+E:\Git2\ProjectLogMedi\BusinessLogic\bin\Debug\BusinessLogic.pdb
+E:\Git2\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.dll
+E:\Git2\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.SqlServer.dll
+E:\Git2\ProjectLogMedi\BusinessLogic\bin\Debug\Models.dll
+E:\Git2\ProjectLogMedi\BusinessLogic\bin\Debug\MySql.Data.dll
+E:\Git2\ProjectLogMedi\BusinessLogic\bin\Debug\MySql.Data.Entity.EF6.dll
+E:\Git2\ProjectLogMedi\BusinessLogic\bin\Debug\Models.pdb
+E:\Git2\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.xml
+E:\Git2\ProjectLogMedi\BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
+E:\Git2\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
+E:\Git2\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.dll
+E:\Git2\ProjectLogMedi\BusinessLogic\obj\Debug\BusinessLogic.pdb

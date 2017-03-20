@@ -138,7 +138,7 @@
      $('#EditUsuario')
          .bootstrapValidator({
              message: 'Este valor no es válido',
-        
+
              fields: {
                  nombre_usuario: {
                      message: 'Nombre no válido',
@@ -173,7 +173,13 @@
                  }
 
              }
-         })
+         });
+     $("#ddlEstado").on('focus', function () {
+         // Store the current value on focus and on change
+         previous = this.value;
+     }).change(function () {
+         Confirmar(previous);
+     });
  });
 </script>
 
