@@ -78,8 +78,7 @@
         margin-right: 0;
     }
 </style>
-
-
+<script src="~/Content/plugin/moment/moment.min.js"></script>
 <section class="content">
 
     <div class="col-md-3">
@@ -146,7 +145,7 @@
 
     <div class="col-md-9">
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Create","Seguimiento",FormMethod.Post,new { @id= "CreateSeguimiento" }))
         {
             @Html.AntiForgeryToken()
             @Html.HiddenFor(x => x.id_cita, new { @id = "id_cita" })
@@ -221,83 +220,86 @@
                                             </div>
                                             <div class="tab-pane" id="Formula" style="padding:15px">
                                                 <div class="form-horizontal">
+                                                    <div id="vali2">
+                                                        <div class="form-group">
+                                                            <div class="col-md-6">
+                                                                @Html.HiddenFor(x => x.id_medicamento, new { @id = "id_medicamento" })
+                                                                @Html.TextBoxFor(x => x.nombre, new { @class = "form-control Buscar", placeholder = "Buscar Medicamento" })
+                                                                @Html.ValidationMessage("producto_agregar", null, new { @class = "label label-danger" })
 
-                                                    <div class="form-group">
-                                                        <div class="col-md-6">
-                                                            @Html.HiddenFor(x => x.id_medicamento, new { @id = "id_medicamento" })
-                                                            @Html.TextBoxFor(x => x.nombre, new { @class = "form-control Buscar", placeholder = "Buscar Medicamento" })
-                                                            @Html.ValidationMessage("producto_agregar", null, new { @class = "label label-danger" })
 
-
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                @Html.HiddenFor(x => x.existencia)
+                                                                @Html.TextBoxFor(x => x.existencia, new { @class = "form-control", placeholder = "Stock", @id = "existencias" })
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                @Html.TextBoxFor(x => x.cantidad, new { @class = "form-control", placeholder = "Cantidad" })
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-3">
-                                                            @Html.HiddenFor(x => x.existencia)
-                                                            @Html.TextBoxFor(x => x.existencia, new { @class = "form-control", placeholder = "Stock", @id = "existencias" })
+                                                        <div class="form-group">
+                                                            <div class="col-md-6">
+                                                                @Html.TextBoxFor(x => x.dosis, new { @class = "form-control Buscar", placeholder = "Dosis" })
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                @Html.TextBoxFor(x => x.frecuencia, new { @class = "form-control", placeholder = "Frecuencia", @id = "frecuencia" })
+                                                            </div>
+
+
+                                                            <div class="col-md-3">
+                                                                <button class="btn btn-primary" type="submit" style="width:100%" value="agregar_formula" name="action">
+                                                                    <i class="glyphicon glyphicon-plus"></i>
+                                                                </button>
+
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-3">
-                                                            @Html.TextBoxFor(x => x.cantidad, new { @class = "form-control", placeholder = "Cantidad" })
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-md-6">
-                                                            @Html.TextBoxFor(x => x.dosis, new { @class = "form-control Buscar", placeholder = "Dosis" })
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            @Html.TextBoxFor(x => x.frecuencia, new { @class = "form-control", placeholder = "Frecuencia", @id = "frecuencia" })
-                                                        </div>
-
-
-                                                        <div class="col-md-3">
-                                                            <button class="btn btn-primary" type="submit" style="width:100%" value="agregar_formula" name="action">
-                                                                <i class="glyphicon glyphicon-plus"></i>
-                                                            </button>
-
-                                                        </div>
-                                                    </div>
 
 
 
 
-                                                    <div id="CargarTabla" class=" table-responsive" style="padding:0px;margin:0px; margin-bottom:5px;min-height:175px;max-height:175px">
-                                                        <table class="table table-bordered table-hover col-md-12" id="tblDetalles">
-                                                            <thead>
-                                                                <tr>
+                                                        <div id="CargarTabla" class="table-responsive" style="padding:0px;margin:0px; margin-bottom:5px;min-height:175px;max-height:175px">
+                                                            <table class="table table-bordered table-hover col-md-12" id="tblDetalles">
+                                                                <thead>
+                                                                    <tr>
 
-                                                                    <th style="width:40%">Medicamento</th>
-                                                                    <th style="width:10%">Cantidad</th>
-                                                                    <th style="width:20%">Dosis</th>
-                                                                    <th style="width:20%">Frecuencia</th>
-                                                                    <th style="width:10%"></th>
+                                                                        <th style="width:40%">Medicamento</th>
+                                                                        <th style="width:10%">Cantidad</th>
+                                                                        <th style="width:20%">Dosis</th>
+                                                                        <th style="width:20%">Frecuencia</th>
+                                                                        <th style="width:10%"></th>
 
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
 
 
 
-                                                                @foreach (var p in Model.posologia)
+                                                                    @foreach (var p in Model.posologia)
                                                                 {
 
-                                                                    <tr>
-                                                                        <td>@p.nombre</td>
-                                                                        <td>@p.cantidad</td>
-                                                                        <td>@p.dosis</td>
-                                                                        <td>@p.frecuencia</td>
-                                                                        <td class="text-right">
-                                                                            <button class="btn btn-danger btn-xs btn-block btn-retira" type="submit" value="@p.id_medicamento" style="width:80%;margin-left:10%;margin-right:10%" name="action">
-                                                                                <i class="glyphicon glyphicon-remove"></i>
-                                                                            </button>
-                                                                        </td>
-                                                                    </tr>
+                                                                        <tr>
+                                                                            <td>@p.nombre</td>
+                                                                            <td>@p.cantidad</td>
+                                                                            <td>@p.dosis</td>
+                                                                            <td>@p.frecuencia</td>
+                                                                            <td class="text-right">
+                                                                                <button class="btn btn-danger btn-xs btn-block btn-retira" type="submit" value="@p.id_medicamento" style="width:80%;margin-left:10%;margin-right:10%" name="action">
+                                                                                    <i class="glyphicon glyphicon-remove"></i>
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
                                                                 }
 
-                                                            </tbody>
+                                                                </tbody>
 
-                                                        </table>
+                                                            </table>
 
 
+                                                        </div>
+                                                        <hr />
                                                     </div>
-                                                    <hr />
+                                                    <!-- vigencia para adelante-->
+                                                    <div id="vali3">
                                                     <div class="col-md-3">
                                                         @Html.TextBoxFor(x => x.formula.vigencia, new { @class = "form-control", placeholder = "Vigencia", @id = "FechaVigencia" })
 
@@ -306,7 +308,7 @@
                                                         @Html.TextAreaFor(model => model.formula.observacion, new { htmlAttributes = new { @class = "form-control", placeholder = "Buscar Medicamento", id = "observacionArea2" } })
                                                     </div>
 
-
+                                                    </div>
 
                                                 </div>
 
@@ -441,8 +443,9 @@
                             <div class="col-md-3 col-xs-12 " style="margin-bottom:0px;margin-top:0px">
                                 <button class="btn btn-danger  " type="submit" style="width:100%" value="cerrar" name="action"><b>Cancelar</b></button>
                             </div>
+
                             <div class="col-md-3 col-xs-12 pull-right " style="margin-bottom:0px;margin-top:0px">
-                                <button class="btn btn-primary  " type="submit" style="width:100%" value="guardar" name="action"><b>Guardar</b></button>
+                                <button class="btn btn-primary  " type="submit" style="width:100%" value="guardar" name="action" disabled><b>Guardar</b></button>
                             </div>
 
 
@@ -515,6 +518,231 @@
 
 
 </section>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var startdate = moment();
+        startdate = startdate.subtract(1, "days");
+        startdate = startdate.format("YYYY-MM-DD");
+        $('#CreateSeguimiento')
+            .bootstrapValidator({
+                message: 'Este valor no es válido',
+
+                fields: {
+
+                    'control.peso': {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 5,
+                                message: 'No puedes sobrepasar los 5 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9-()",.;:%$=ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    'control.presion': {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 10,
+                                message: 'No puedes sobrepasar los 10 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9-()",.;:%$=ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    'control.motivo_consulta': {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 150,
+                                message: 'No puedes sobrepasar los 150 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9-()",.;:%$=ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    'control.sintomatologia': {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 150,
+                                message: 'No puedes sobrepasar los 150 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9-()",.;:%$=ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    nombre: {
+                        enabled: false,
+                        message: 'Campo no válido',
+                        validators: {
+
+                            notEmpty: {
+
+                                message: 'El campo es requerido'
+ ,
+                            },
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    cantidad: {
+                        enabled: false,
+                        message: 'Campo no válido',
+                        validators: {
+
+                            notEmpty: {
+
+                                message: 'El campo es requerido'
+ ,
+                            },
+                            stringLength: {
+                                max: 11,
+                                message: 'No puedes sobrepasar los 11 dígitos en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[0-9\s]+$/i,
+                                message: 'La cantidad no es válida'
+                            }
+                        }
+                    },
+                    dosis: {
+                        enabled: false,
+                        message: 'Campo no válido',
+                        validators: {
+
+                            notEmpty: {
+
+                                message: 'El campo es requerido'
+ ,
+                            },
+                            stringLength: {
+                                max: 15,
+                                message: 'No puedes sobrepasar los 15 dígitos en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'La dosis no es válida'
+                            }
+                        }
+                    },
+                    frecuencia: {
+                        enabled: false,
+                        message: 'Campo no válido',
+                        validators: {
+
+                            notEmpty: {
+
+                                message: 'El campo es requerido'
+ ,
+                            },
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 dígitos en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'EL campo no es válido'
+                            }
+                        }
+                    },
+                    'formula.observacion': {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 200,
+                                message: 'No puedes sobrepasar los 200 dígitos en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'EL campo no es válido'
+                            }
+                        }
+                    },
+                    'formula.vigencia': {
+                        message: 'Fecha de nacimiento no válido',
+                        validators: {
+                            notEmpty: {
+                                message: 'Campo requerido'
+                            },
+                            callback: {
+                                message: 'La fecha de la vigencia debe ser mayor a ayer',
+                                callback: function (value, validator) {
+                                    var m = new moment(value, 'YYYY/MM/DD', true);
+                                    if (!m.isValid()) {
+                                        return false;
+                                    }
+                                   
+                                    return m.isAfter(startdate);
+                                }
+
+                            }
+                        }
+                    },
+                       'observacion_enfermedad': {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 200,
+                                message: 'No puedes sobrepasar los 200 dígitos en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'EL campo no es válido'
+                            }
+                        }
+                    },
+                    'observacion_tratamiento': {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 200,
+                                message: 'No puedes sobrepasar los 200 dígitos en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'EL campo no es válido'
+                            }
+                        }
+                    },
+                  
+    }
+    
+            }) .on('keyup', '[name="nombre"]', function() {
+                var isEmpty = $(this).val() == '';
+                $('#enableForm')
+                        .formValidation('enableFieldValidators', 'nombre', !isEmpty)
+                        .formValidation('enableFieldValidators', 'cantidad', !isEmpty)
+                        .formValidation('enableFieldValidators', 'dosis', !isEmpty)
+                        .formValidation('enableFieldValidators', 'frecuencia', !isEmpty);
+
+                // Revalidate the field when user start typing in the password field
+                if ($(this).val().length == 1) {
+                    $('#enableForm').formValidation('validateField', 'nombre')
+                                    .formValidation('validateField', 'cantidad')
+                                    .formValidation('validateField', 'dosis')
+                                    .formValidation('validateField', 'frecuencia');
+                }
+            });
+    });
+
+</script>
 
 
 
@@ -592,7 +820,9 @@
         });
 
         $('#formula_observacion').attr("placeholder", "Observacion");
-
+        $("#FechaVigencia").change(function () {
+            $('#CreateSeguimiento').bootstrapValidator('revalidateField', 'formula.vigencia');
+        });
     </script>
     <script src="~/Scripts/Seguimiento/Create.js"></script>
 

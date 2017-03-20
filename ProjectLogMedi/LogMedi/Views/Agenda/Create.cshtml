@@ -76,9 +76,10 @@
     </div>
 </section>
 <script type="text/javascript">
+    var hoy = moment().format('YYYY/MM/DD');
 
     $(document).ready(function () {
-        $("#cita_observaciones").attr('name','cita_observaciones');
+        $("#cita_observaciones").attr('name', 'cita_observaciones');
         $('#CreateAgenda')
             .bootstrapValidator({
                 message: 'Este valor no es válido',
@@ -94,7 +95,7 @@
                             },
                             notEmpty: {
                                 message: 'Campo requerido'
-                        },
+                            },
                             regexp: {
                                 regexp: /^[a-zA-Z0-9-\s]+$/i,
                                 message: 'No se admiten carácteres especiales'
@@ -109,19 +110,23 @@
                                 message: 'No puedes sobrepasar los 200 carácteres en este campo'
                             },
                             regexp: {
-                                regexp: /^[a-zA-Z0-9-()",.;:%$=\s]+$/i,
+                                regexp: /^[a-zA-Z0-9-()",.;:%$=ñÑáéíóúÁÉÍÓÚ\s]+$/i,
                                 message: 'No se admiten carácteres especiales'
                             }
                         }
-                    }
+                    },
+                   
 
                 }
             })
            .on('success.field.fv', function (e, data) {
 
            });
+        $("#FechaVigencia").change(function () {
+            $('#CreateAgenda').bootstrapValidator('revalidateField', 'formula.vigencia');
+            alert("pl;a");
+        });
     });
-
 </script>
 
 

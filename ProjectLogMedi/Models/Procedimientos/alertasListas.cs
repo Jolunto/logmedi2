@@ -1,5 +1,6 @@
 ﻿namespace Models
 {
+    using Models;
     using System.Collections.Generic;
 
 
@@ -15,6 +16,8 @@
         public List<usuario> Usuario { get; set; }
         public List<rol> Rol { get; set; }
         public List<empleado> Empleado { get; set; }
+        public List<IndexSeguimiento> Seguimiento { get; set; }
+        public Seguimiento Seguimiento2 { get; set; }
 
         public alertasListas()
         {
@@ -26,6 +29,8 @@
             Usuario = new List<usuario>();
             Rol = new List<rol>();
             Empleado = new List<empleado>();
+            Seguimiento = new List<IndexSeguimiento>();
+            Seguimiento2 = new Models.Seguimiento();
         }
 
         

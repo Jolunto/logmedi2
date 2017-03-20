@@ -19,12 +19,12 @@ namespace LogMedi.Controllers
         public bool Cambiar(string OldPassword, string NewPassword, string ConfirmPassword)
         {
             usuarioRepository cambiar = new usuarioRepository();
-            Array comparar = cambiar.CompararContrasena(19);
+            Array comparar = cambiar.CompararContrasena(17);
 
             if (string.Compare(OldPassword,comparar.GetValue(0).ToString()) == 0)
             {
                 bool bandera = false;
-                bandera = cambiar.CambiarContrasena(19,NewPassword);
+                bandera = cambiar.CambiarContrasena(17,NewPassword);
                 return bandera;
             }
             else

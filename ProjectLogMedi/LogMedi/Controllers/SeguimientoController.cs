@@ -13,10 +13,24 @@ namespace LogMedi.Controllers
     {
         seguimientoRepository seguimientos = new seguimientoRepository();
         LogmediContext db = new LogmediContext();
+        alertasListas alerta = new alertasListas();
+
         // GET: Seguimiento
         public ActionResult Index()
+
         {
-            return View(seguimientos.Index(17));
+
+            alerta.Seguimiento = seguimientos.Index(17);
+            if (Session["Alerta"] == null)
+            {
+                return View(alerta);
+            }
+            else
+            {
+                alerta.alerta = int.Parse(Session["Alerta"].ToString());
+                Session["Alerta"] = null;
+                return View(alerta);
+            }
         }
 
         [HttpGet]
@@ -30,14 +44,25 @@ namespace LogMedi.Controllers
         {
             try
             {
-                seguimientos.Prioritaria(cita, 17);
+                if (ModelState.IsValid)
+                {
+                    seguimientos.Prioritaria(cita, 17);
+                    alerta.alerta = 1;
+                    Session["Alerta"] = alerta.alerta;
+                    return RedirectToAction("Index");
+                }
+                alerta.alerta = 4;
+                Session["Alerta"] = alerta.alerta;
+                return RedirectToAction("Index");
             }
             catch (Exception)
             {
+                alerta.alerta = 3;
+                Session["Alerta"] = alerta.alerta;
                 return RedirectToAction("Index");
                
             }
-            return RedirectToAction("Index");
+           
         }
 
         // GET: Seguimiento/Details/5
@@ -81,12 +106,14 @@ namespace LogMedi.Controllers
                
                 try
                 {
+                    alerta.Seguimiento2 = seguimiento;
                     seguimientos.Registrar(seguimiento);
-                    return RedirectToAction("Index");
+                        alerta.alerta = 1;
+                        Session["Alerta"] = alerta.alerta;
+                        return RedirectToAction("Index");
                 }
                 catch (Exception )
                 {
-
                     return View(seguimiento);
                 }
                           
@@ -131,6 +158,9 @@ namespace LogMedi.Controllers
 
 
         }
+
+
+      
 
         // GET: Seguimiento/Edit/5
         public ActionResult Edit(int id)

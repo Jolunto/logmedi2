@@ -20,13 +20,13 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
-            <h3 class="box-title">Registar nuevo rol</h3>
+            <h3 class="box-title">Registar cita prioritaria</h3>
 
         </div>
 
 
 
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Prioritaria","Seguimiento", FormMethod.Post, new { @id ="CreateAgendaPrioritaria" }))
         {
             @Html.AntiForgeryToken()
 
@@ -70,3 +70,51 @@
     </div>
 </section>
 
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#CreateAgendaPrioritaria')
+            .bootstrapValidator({
+                message: 'Este valor no es válido',
+
+                fields: {
+
+                    id_paciente: {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            notEmpty: {
+                                message: 'Campo requerido'
+                        },
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9-\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    },
+                    observaciones: {
+                        message: 'Campo no válido',
+                        validators: {
+                            stringLength: {
+                                max: 200,
+                                message: 'No puedes sobrepasar los 200 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9-()",.;:%$=\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                    }
+
+                }
+            })
+           .on('success.field.fv', function (e, data) {
+
+           });
+    });
+
+</script>
