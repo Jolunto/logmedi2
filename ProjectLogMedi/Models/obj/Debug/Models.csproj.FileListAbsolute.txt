@@ -68,4 +68,3 @@ E:\Git2\ProjectLogMedi\Models\bin\Debug\EntityFramework.xml
 E:\Git2\ProjectLogMedi\Models\bin\Debug\EntityFramework.SqlServer.xml
 E:\Git2\ProjectLogMedi\Models\obj\Debug\Models.dll
 E:\Git2\ProjectLogMedi\Models\obj\Debug\Models.pdb
-E:\Git2\ProjectLogMedi\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
