@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BusinessLogic;
 using Models;
 using System.Data.Entity;
+using System.Diagnostics;
 
 namespace LogMedi.Controllers
 {
@@ -159,6 +160,14 @@ namespace LogMedi.Controllers
             return Json(ventas.BuscarProducto(nombre));
         }
 
-
+        public ActionResult Generar(string Tabla,string Total,string id_paciente)
+        {
+            Helper.HtmlToPdf Pdf = new Helper.HtmlToPdf();
+            string ruta = (Pdf.ByteToPdf(Pdf.PdfSharpConvert("<html><body>"+Tabla+"</br>"+Total+"</body><html>")));
+            Process.Start(ruta);
+            venta.alerta = 1;
+            Session["Alerta"] = venta.alerta;
+            return RedirectToAction("Consultar");
+        }
     }
 }

@@ -39,7 +39,7 @@
                         <label class="col-md-2 control-label" style="text-align:left">Documento </label>
 
                         <div class="col-md-3">
-                            @Html.TextBoxFor(x => x.id_paciente, new { @class = "form-control", placeholder = "Ingrese id del paciente" })
+                            @Html.TextBoxFor(x => x.id_paciente, new { @class = "form-control", placeholder = "Ingrese el documento del paciente" })
                             @Html.ValidationMessage("Cliente", null, new { @class = "label label-danger" })
                         </div>
 
@@ -125,17 +125,31 @@
                         </div>
                         <hr/>
                         <div class="col-md-6" style="text-align:left">
-                            <button class="btn btn-primary btn-block btn-sm pull-left" type="submit" value="generar" style="width:30%" name="action">Generar comprobante</button>
+                            <button class="btn btn-primary btn-block btn-sm pull-left" type="submit" value="generar" onclick="return GenerarComprobanteVentaCreate();" style="width:30%" name="action">Generar comprobante</button>
 
                         </div>
-                        <div class="col-md-6" style="text-align:right;font-size:20px">
+                        <div id="Total" class="col-md-6" style="text-align:right;font-size:20px">
                             <label>Total</label>
                             @string.Format("{0:c}", Model.Total())
                            
                         </div>
                        
                     </div>
-                    
+                    <div class="modal modal-primary" id="ModalComprobante" data-keyboard="false" data-backdrop="static">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="ModalTittle">¿Desea generar el comprobante de la venta a pdf?</h4>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success  pull-right col-lg-offset-1" style="width: 80px;" data-dismiss="modal" onclick="GenerarComprobante();" id="p1">Sí</button>
+                                    <button type="button" data-dismiss="modal" style="width: 80px" class="btn btn-danger right" id="p2">No</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
                 }
 
 
@@ -239,7 +253,45 @@
 
            });
     });
+    function GenerarComprobanteVentaCreate() {
+        $("#ModalComprobante").modal("show");
+        $("#p1").on("click", function () {
+            var loc = window.location;
+            var pathName = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
+            var URLactual = loc.href.substring(0, loc.href.length - ((loc.pathname + loc.search + loc.hash).length - pathName.length));
 
+            var Tabla = $("#CargarTabla").html();
+            var Total = $("#Total").html();
+            var id_paciente = $("#id_paciente").html();
+
+            var send = {
+                Tabla: Tabla,
+                Total: Total,
+                id_paciente: id_paciente
+            };
+            $.ajax("/Venta/Generar",
+{
+    type: 'post',
+    cache: false,
+    dataType: 'text',
+    contentType: "application/json",
+    data: JSON.stringify(send),
+
+    error: function (xhr, status) {
+        console.log(status);
+        console.log(xhr.responseText);
+    }
+})
+
+        });
+        $("#p2").on("click", function () {
+       
+        });
+        return true;
+    }
+    function GenerarComprobante() {
+        
+    }
 </script>
 
 @section scripts{

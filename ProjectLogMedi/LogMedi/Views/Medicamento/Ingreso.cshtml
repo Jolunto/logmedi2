@@ -116,13 +116,27 @@
                                 </div>
                             </div>
                             <div class="col-md-2" style="padding-right:0px">
-                                <button class="btn btn-block btn-primary" type="submit" value="generar" name="action">Registrar</button>
+                                <button class="btn btn-block btn-primary" type="submit" onclick="return GenerarComprobanteVentaCreate();" value="generar" name="action">Registrar</button>
 
                             </div>
 
                         </div>
                     </div>
-
+                    <div class="modal modal-primary" id="ModalComprobante" data-keyboard="false" data-backdrop="static">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="ModalTittle">¿Desea generar el comprobante del ingreso a pdf?</h4>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success  pull-right col-lg-offset-1" style="width: 80px;" data-dismiss="modal" onclick="GenerarComprobante();" id="p1">Sí</button>
+                                    <button type="button" data-dismiss="modal" style="width: 80px" class="btn btn-danger right" id="p2">No</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
                 }
 
 
@@ -255,7 +269,129 @@
         }
         $("#cantidad").prop('type', 'number');
     </script>
-    
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#Validar')
+            .bootstrapValidator({
+                message: 'Este valor no es válido',
+
+                fields: {
+
+                   id_paciente: {
+                        message: 'Campo no válido',
+                        validators: {
+
+                            notEmpty:{
+
+                                message: 'El campo es requerido'
+,                            },
+                            stringLength: {
+                                max: 20,
+                                message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                            },
+                            regexp: {
+                                regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                                message: 'No se admiten carácteres especiales'
+                            }
+                        }
+                   },
+                   nombre: {
+                       message: 'Campo no válido',
+                       validators: {
+
+                           notEmpty: {
+
+                               message: 'El campo es requerido'
+,
+                           },
+                           stringLength: {
+                               max: 20,
+                               message: 'No puedes sobrepasar los 20 carácteres en este campo'
+                           },
+                           regexp: {
+                               regexp: /^[a-z0-9,.ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                               message: 'No se admiten carácteres especiales'
+                           }
+                       }
+                   },
+                   cantidad: {
+                       message: 'Campo no válido',
+                       validators: {
+
+                           notEmpty: {
+
+                               message: 'El campo es requerido'
+,
+                           },
+                           stringLength: {
+                               max: 11,
+                               message: 'No puedes sobrepasar los 11 dígitos en este campo'
+                           },
+                           regexp: {
+                               regexp: /^[0-9\s]+$/i,
+                               message: 'La cantidad no es válida'
+                           }
+                       }
+                   },
+                   costo: {
+                       message: 'Campo no válido',
+                       validators: {
+
+                           notEmpty: {
+
+                               message: 'El campo es requerido'
+,
+                           },
+                           stringLength: {
+                               max: 11,
+                               message: 'No puedes sobrepasar los 11 dígitos en este campo'
+                           },
+                           regexp: {
+                               regexp: /^[0-9\s]+$/i,
+                               message: 'el costo no es válido'
+                           }
+                       }
+                   }
+
+                }
+            })
+           .on('success.field.fv', function (e, data) {
+
+           });
+    });
+    function GenerarComprobanteVentaCreate() {
+        $("#ModalComprobante").modal("show");
+        $("#p1").on("click", function () {
+            var loc = window.location;
+            var pathName = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
+            var URLactual = loc.href.substring(0, loc.href.length - ((loc.pathname + loc.search + loc.hash).length - pathName.length));
+
+            var Tabla = $("#CargarTabla").html();
+
+            var send = {
+                Tabla: Tabla,
+            };
+            $.ajax("/Medicamento/Generar",
+{
+    type: 'post',
+    cache: false,
+    dataType: 'text',
+    contentType: "application/json",
+    data: JSON.stringify(send),
+
+    error: function (xhr, status) {
+        console.log(status);
+        console.log(xhr.responseText);
+    }
+})
+
+        });
+        $("#p2").on("click", function () {
+
+        });
+        return true;
+    }
+</script>
 <script src="~/Scripts/Medicamento/Compra/CompraCreate.js"></script>
 
 }

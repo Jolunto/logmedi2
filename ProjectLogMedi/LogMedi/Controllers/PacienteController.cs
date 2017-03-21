@@ -23,7 +23,7 @@ namespace LogMedi.Controllers
             }
             else
             {
-                buscar = (pacienteTable)Session["Alerta"];
+                buscar.alerta = int.Parse(Session["Alerta"].ToString());
                 Session["Alerta"] = null;
                 return View(buscar);
             }
@@ -89,17 +89,17 @@ namespace LogMedi.Controllers
                 {                  
                     pacientes.Agregar(paciente);
                     alerta.alerta=1;
-                    Session["Alerta"] = alerta;
+                    Session["Alerta"]  = alerta.alerta;
                     return RedirectToAction("Index");
                 }
                 alerta.alerta = 4;
-                Session["Alerta"] =alerta;
+                Session["Alerta"] =alerta.alerta;
                 return RedirectToAction("Index");
             }
             catch
             {
                 alerta.alerta = 3;
-                Session["Alerta"] = alerta;
+                Session["Alerta"] = alerta.alerta;
                 return RedirectToAction("Index");
             }
         }
@@ -133,17 +133,17 @@ namespace LogMedi.Controllers
                 {
                     pacientes.Actualizar(paciente);
                     alerta.alerta = 2;
-                    Session["Alerta"] = alerta;
+                    Session["Alerta"] = alerta.alerta;
                     return RedirectToAction("Index");
                 }
                 alerta.alerta = 4;
-                Session["Alerta"] = alerta;
+                Session["Alerta"] = alerta.alerta;
                 return RedirectToAction("Index"); 
             }
             catch
             {
                 alerta.alerta = 3;
-                Session["Alerta"] = alerta;
+                Session["Alerta"] = alerta.alerta;
                 return RedirectToAction("Index");
             }
         }
